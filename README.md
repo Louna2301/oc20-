@@ -1,6 +1,6 @@
 # oc20
 
-#Créer un jeu avec le logiciel pygame 
+# Créer un jeu avec le logiciel pygame 
 
 * Programmé en Python
 * Utilisant la bibliothèque pygame
