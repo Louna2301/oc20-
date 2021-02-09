@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 
+SIZE = (500, 500)
 RED = (255, 0, 0)
 GRAY = (150, 150, 150)
 
@@ -9,7 +10,7 @@ w, h = 640, 240
 screen = pygame.display.set_mode((w, h))
 running = True
 
-img = pygame.image.load('bird.png')
+img = pygame.image.load('mario tanuki.png')
 img.convert()
 rect = img.get_rect()
 rect.center = w//2, h//2
@@ -32,7 +33,7 @@ while running:
     
     screen.fill(GRAY)
     screen.blit(img, rect)
-    pygame.draw.rect(screen, RED, rect, 1)
+    pygame.draw.rect(screen, RED, rect, 2)
     pygame.display.update()
 
 pygame.quit()

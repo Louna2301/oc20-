@@ -13,7 +13,7 @@ running = True
 
 module = sys.modules['__main__']
 path, name = os.path.split(module.__file__)
-path = os.path.join(path, 'bird.png')
+path = os.path.join(path, 'mario tanuki.png')
 
 img0 = pygame.image.load(path)
 img0.convert()
