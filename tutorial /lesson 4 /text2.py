@@ -23,11 +23,11 @@ img = font.render(sysfont, True, RED)
 rect = img.get_rect()
 pygame.draw.rect(img, BLUE, rect, 1)
 
-font1 = pygame.font.SysFont('chalkduster.ttf', 72)
-img1 = font1.render('chalkduster.ttf', True, BLUE)
+font1 = pygame.font.SysFont('chalkduster.ttf', 172)
+img1 = font1.render('hello', True, BLUE)
 
-font2 = pygame.font.SysFont('didot.ttc', 72)
-img2 = font2.render('didot.ttc', True, GREEN)
+font2 = pygame.font.SysFont('didot.ttc', 23)
+img2 = font2.render('Salut toi!!', True, GREEN)
 
 fonts = pygame.font.get_fonts()
 print(len(fonts))

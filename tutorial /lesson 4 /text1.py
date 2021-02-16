@@ -8,14 +8,14 @@ RED = (255, 0, 0)
 GRAY = (200, 200, 200)
 
 pygame.init()
-screen = pygame.display.set_mode((640, 240))
+screen = pygame.display.set_mode((640, 140))
 
-text = 'this text is editable'
+text = 'Bla Bla Bla Bla Bla'
 font = pygame.font.SysFont(None, 48)
 img = font.render(text, True, RED)
 
 rect = img.get_rect()
-rect.topleft = (20, 20)
+rect.topleft = (60, 60)
 cursor = Rect(rect.topright, (3, rect.height))
 
 running = True
