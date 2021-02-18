@@ -55,8 +55,8 @@ while running:
             size = end[0]-start[0], end[1]-start[1]
 
     screen.fill(GRAY)
-    for rect in rect_list:
-        pygame.draw.rect(screen, RED, rect, 3)
+    for shape in shape_list:
+        pygame.draw.rect(screen, shape.color, shape.rect, shape.width )
     pygame.draw.rect(screen, BLUE, (start, size), 1)
     pygame.display.update()
 
