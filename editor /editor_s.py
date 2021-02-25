@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 
+# Mettre un fond (Mario paysage)
 SIZE = 1500, 1500
 RED = (255, 0, 0)
 GRAY = (150, 150, 150)
