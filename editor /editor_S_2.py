@@ -12,7 +12,7 @@ img = pygame.image.load('mariosurpris.jpg')
 img.convert()
 
 rect = img.get_rect()
-rect.center = 600, 20
+rect.center = 300, 500
 moving = False
 running = True
 
