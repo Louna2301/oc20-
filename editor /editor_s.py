@@ -27,6 +27,8 @@ while running:
     screen.blit(img, rect)
     pygame.display.flip()
     
+background.paste(img, (0, 0), img_2)
+background.save('how_to_superimpose_two_images_01.png',"PNG")
 img_2 = pygame.image.load('mariosurpris.jpg')
 img_2.convert()
 img_2 = pygame.transform.scale(img_2, (300, 300))
