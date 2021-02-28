@@ -30,10 +30,6 @@ pygame.init()
 
 # Créer une nouvelle fenêtre
 SIZE = 1500, 1500
-RED = (255, 0, 0)
-GRAY = (150, 150, 150)
-
-pygame.init()
 screen = pygame.display.set_mode(SIZE)
 screen.fill(GREEN)
 pygame.display.update() # est nécessaire pour afficher les changements
@@ -56,8 +52,6 @@ while running:
                 
             caption = 'background color = ' + str(background)
             pygame.display.set_caption(caption)
-                
-            screen.fill(background)
 
 img = pygame.image.load('mariosurpris.jpg')
 img.convert()
@@ -80,9 +74,8 @@ while running:
     for event in pygame.event.get():
         if event.type == QUIT:
             running = False
-
-    screen.fill(GRAY)
-    pygame.draw.rect(screen, RED, rect, 2)
+            
+    screen.fill(background)
     screen.blit(img, rect)
     screen.blit(img_2, rect_2)
     pygame.display.flip()
