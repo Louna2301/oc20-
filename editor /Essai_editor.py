@@ -1,6 +1,7 @@
 import pygame
 from pygame.locals import *
 
+
 #Tools > install pygame
 #Find pygame
 #Install
@@ -34,7 +35,23 @@ screen = pygame.display.set_mode(SIZE)
 screen.fill(GREEN)
 pygame.display.update() # est nécessaire pour afficher les changements
 
+img = pygame.image.load('mariosurpris.jpg')
+img.convert()
+img = pygame.transform.scale(img, (300, 300))
+img_2 = pygame.image.load('Boser.png')
+img_2.convert()
+img_2 = pygame.transform.scale(img_2, (400, 400))
+
 # Boucle principale (event loop)
+rect = img.get_rect()
+rect.center = 400, 500
+moving = False
+running = True
+
+rect_2 = img_2.get_rect()
+rect_2.center = 1000, 500
+moving = False
+running = True
 running = True
 while running:
     for event in pygame.event.get():
@@ -49,35 +66,12 @@ while running:
                 background = GREEN
             elif event.key == pygame.K_s:
                 background = BLACK
-                
-            caption = 'background color = ' + str(background)
-            pygame.display.set_caption(caption)
-
-img = pygame.image.load('mariosurpris.jpg')
-img.convert()
-img = pygame.transform.scale(img, (300, 300))
-img_2 = pygame.image.load('Boser.png')
-img_2.convert()
-img_2 = pygame.transform.scale(img_2, (400, 400))
-
-rect = img.get_rect()
-rect.center = 400, 500
-moving = False
-running = True
-
-rect_2 = img_2.get_rect()
-rect_2.center = 1000, 500
-moving = False
-running = True
-
-while running:
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            running = False
             
-    screen.fill(background)
-    screen.blit(img, rect)
-    screen.blit(img_2, rect_2)
-    pygame.display.flip()
+caption = 'background color = ' + str(background)
+pygame.display.set_caption(caption)
+screen.fill(background)
+screen.blit(img, rect)
+screen.blit(img_2, rect_2)
+pygame.display.flip()   
         
 pygame.quit()
