@@ -41,12 +41,18 @@ img = pygame.transform.scale(img, (300, 300))
 img_2 = pygame.image.load('Boser.png')
 img_2.convert()
 img_2 = pygame.transform.scale(img_2, (400, 400))
+img_3 = pygame.image.load('mariopaysage.jpg')
+img.convert()
 
 # Boucle principale (event loop)
 rect = img.get_rect()
 rect.center = 400, 500
 moving = False
 running = True
+
+rect_3 = img_3.get_rect()
+rect_3.center = 600, 20
+moving = False
 
 rect_2 = img_2.get_rect()
 rect_2.center = 1000, 500
@@ -61,7 +67,7 @@ while running:
         elif event.type == pygame.KEYDOWN: # une touche à été pressée
             print(event)
             if event.key == pygame.K_r:
-                background = RED
+                background = img_3
             elif event.key == pygame.K_g:
                 background = GREEN
             elif event.key == pygame.K_s:
