@@ -67,7 +67,7 @@ while running:
         elif event.type == pygame.KEYDOWN: # une touche à été pressée
             print(event)
             if event.key == pygame.K_r:
-                background = img_3
+                background = RED
             elif event.key == pygame.K_g:
                 background = GREEN
             elif event.key == pygame.K_s:
