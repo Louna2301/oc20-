@@ -48,7 +48,9 @@ img_3.convert()
 sysfont = pygame.font.get_default_font()
 print('system font :', sysfont)
 font = pygame.font.SysFont(None, 24)
+
 img = font.render('hello', True, BLUE)
+
 screen.blit(img, (20, 20))
 t0 = time.time()
 text_1 = (30, 50)   
@@ -88,9 +90,13 @@ while running:
                 background = GREEN
             elif event.key == pygame.K_s:
                 background = BLACK
-            elif event.key == pygame.K_o:
-               background = MAGENTA
-                
+        
+               
+            elif event.key == pygame.K_p:
+                img2 = font2.render('PLAY', True, CYAN)
+            elif event.key == pygame.K_m:
+                img2 = font2.render('PLAY', True, WHITE)
+            
                 
     caption = 'background color = ' + str(background)
     pygame.display.set_caption(caption)
