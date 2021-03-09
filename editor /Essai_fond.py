@@ -74,6 +74,8 @@ rect_3 = img_3.get_rect()
 rect_3.center = 600, 20
 
 rect = Rect(100, 50, 50, 50)
+width = 500
+height = 500
 v = [2, 2]
 
 running = True
