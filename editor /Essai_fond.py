@@ -3,6 +3,7 @@ from pygame.locals import *
 import time
 from rect import *
 
+
 #Tools > install pygame
 #Find pygame
 #Install
@@ -99,16 +100,18 @@ while running:
             elif event.key == pygame.K_m:
                 img2 = font2.render('PLAY', True, WHITE)
                 
-        rect.move_ip(v)
+            elif event.key == pygame.K_c:
+                ect.move_ip(v)
 
-    if rect.left < 0:
-        v[0] *= -1
-    if rect.right > width:
-        v[0] *= -1
-    if rect.top < 0:
-        v[1] *= -1
-    if rect.bottom > height:
-        v[1] *= -1
+                if rect.left < 0:
+                    v[0] *= -1
+                if rect.right > width:
+                    v[0] *= -1
+                if rect.top < 0:
+                    v[1] *= -1
+                if rect.bottom > height:
+                    v[1] *= -1
+   
             
                 
     caption = 'background color = ' + str(background)
