@@ -1,7 +1,8 @@
 import pygame
 from pygame.locals import *
-import time
 from rect import *
+import time
+
 
 
 #Tools > install pygame
@@ -111,9 +112,7 @@ while running:
                     v[1] *= -1
                 if rect.bottom > height:
                     v[1] *= -1
-   
-            
-                
+       
     caption = 'background color = ' + str(background)
     pygame.display.set_caption(caption)
     screen.fill(background)
