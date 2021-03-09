@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
 import time
-
+from rect import *
 
 #Tools > install pygame
 #Find pygame
@@ -74,6 +74,8 @@ rect_2.center = 1000, 500
 rect_3 = img_3.get_rect()
 rect_3.center = 600, 20
 
+rect = Rect(100, 50, 50, 50)
+v = [2, 2]
 
 running = True
 
@@ -96,6 +98,17 @@ while running:
                 img2 = font2.render('PLAY', True, CYAN)
             elif event.key == pygame.K_m:
                 img2 = font2.render('PLAY', True, WHITE)
+                
+        rect.move_ip(v)
+
+    if rect.left < 0:
+        v[0] *= -1
+    if rect.right > width:
+        v[0] *= -1
+    if rect.top < 0:
+        v[1] *= -1
+    if rect.bottom > height:
+        v[1] *= -1
             
                 
     caption = 'background color = ' + str(background)
