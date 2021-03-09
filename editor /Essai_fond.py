@@ -1,9 +1,6 @@
 import pygame
 from pygame.locals import *
-from rect import *
 import time
-
-
 
 #Tools > install pygame
 #Find pygame
@@ -102,7 +99,7 @@ while running:
                 img2 = font2.render('PLAY', True, WHITE)
                 
             elif event.key == pygame.K_c:
-                ect.move_ip(v)
+                rect.move_ip(v)
 
                 if rect.left < 0:
                     v[0] *= -1
