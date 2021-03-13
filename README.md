@@ -24,24 +24,23 @@
 
 
 ## Description 
-Décrivez ce que votre éditeur peut faire 
+Notre editeur peut:
+* changer de couleur de fond
+* 
 
-## Interfaces 
-Capture d'écran 
+## Interfaces
 
 
 
 ## Raccourcis claviers 
+### Couleurs de fond
+- r pour rouge 
+- s pour noir
+- g pour vert
 
-- R pour insérer un rectangle 
-- L pour insérer une ligne 
-- C pour insérer un cercle 
-
-Pour changement de 
-- alt+1 pour ligne d'épaisseur 1 
-- alt+0 pout figure remplie 
-- alt+2 pour ligne d'épaisseur 2 
-
+### Couleurs de 'play'
+- p pour cyan
+- m pour blanc
 
 ## Manipulation avec la souris 
 
