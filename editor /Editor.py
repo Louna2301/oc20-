@@ -161,8 +161,10 @@ while running:
                 width = 0
             elif event.key == K_1:
                 width = 1
-            elif event.key == K_2:
+            elif event.key == K_3:
                 width = 3
+            elif event.key == K_5:
+                width = 5
         
             elif event.key == K_r:
                 color = RED
