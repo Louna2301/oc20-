@@ -113,5 +113,5 @@ pygame.quit()
 #Nouvelle fenêtre
 SIZE = 1500, 1500
 screen = pygame.display.set_mode(SIZE)
-screen.fill(GREEN)
+screen.fill(GRAY)
 pygame.display.update() # est nécessaire pour afficher les changements
