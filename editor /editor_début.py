@@ -41,7 +41,8 @@ img_1 = pygame.transform.scale(img_1, (300, 300))
 img_2 = pygame.image.load('Boser.png')
 img_2.convert()
 img_2 = pygame.transform.scale(img_2, (400, 400))
-
+img_3 = pygame.image.load('mariopaysage.jpg')
+img_3.convert()
 
 sysfont = pygame.font.get_default_font()
 print('system font :', sysfont)
@@ -69,6 +70,8 @@ rect_1.center = 400, 500
 rect_2 = img_2.get_rect()
 rect_2.center = 1000, 500
 
+rect_3 = img_3.get_rect()
+rect_3.center = 600, 20
 
 rect = Rect(100, 50, 50, 50)
 width = 500
@@ -79,7 +82,7 @@ running = True
 
 while running:
     for event in pygame.event.get():
-        if event.type == MOUSEBUTTONDOWN:# cliquer sur le bouton rouge
+        if event.type == pygame.QUIT:# cliquer sur le bouton rouge
             running = False
         
         elif event.type == pygame.KEYDOWN: # une touche à été pressée
@@ -96,6 +99,20 @@ while running:
                 img2 = font2.render('PLAY', True, CYAN)
             elif event.key == pygame.K_m:
                 img2 = font2.render('PLAY', True, WHITE)
+                
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:# cliquer sur le bouton rouge
+            running = False
+                       
+        elif event.type == pygame.MOUSEBUTTONDOWN: # cliquer pour play
+            start = event.pos
+            
+        pygame.init()
+        SIZE = 1500, 1500
+        screen = pygame.display.set_mode(SIZE)
+        screen.fill(GRAY)
+        pygame.display.update()
        
     caption = 'background color = ' + str(background)
     pygame.display.set_caption(caption)
@@ -110,8 +127,3 @@ while running:
     pygame.display.update()
 
 pygame.quit()
-#Nouvelle fenêtre
-SIZE = 1500, 1500
-screen = pygame.display.set_mode(SIZE)
-screen.fill(GREEN)
-pygame.display.update() # est nécessaire pour afficher les changements
