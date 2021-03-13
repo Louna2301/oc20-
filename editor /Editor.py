@@ -99,6 +99,20 @@ while running:
                 img2 = font2.render('PLAY', True, CYAN)
             elif event.key == pygame.K_m:
                 img2 = font2.render('PLAY', True, WHITE)
+                
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:# cliquer sur le bouton rouge
+            running = False
+                       
+        elif event.type == pygame.MOUSEBUTTONDOWN: # cliquer pour play
+            start = event.pos
+            
+        pygame.init()
+        SIZE = 1500, 1500
+        screen = pygame.display.set_mode(SIZE)
+        screen.fill(GRAY)
+        pygame.display.update()
        
     caption = 'background color = ' + str(background)
     pygame.display.set_caption(caption)
