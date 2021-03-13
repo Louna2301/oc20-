@@ -31,7 +31,7 @@ Notre editeur peut:
 <img width="1256" alt="Capture d’écran 2021-03-13 à 11 08 10" src="https://user-images.githubusercontent.com/77683990/111029124-338f6e80-83fb-11eb-8b39-d064bf3395f1.png">
 <img width="1282" alt="Capture d’écran 2021-03-13 à 11 07 36" src="https://user-images.githubusercontent.com/77683990/111029132-3c804000-83fb-11eb-9e12-313e0026fc5a.png">
 <img width="1323" alt="Capture d’écran 2021-03-13 à 11 08 50" src="https://user-images.githubusercontent.com/77683990/111029142-443fe480-83fb-11eb-8e9b-95a1315d5a2b.png">
-
+<img width="1155" alt="Capture d’écran 2021-03-13 à 16 47 52" src="https://user-images.githubusercontent.com/77683990/111035723-fbe4ee80-841b-11eb-996f-80c6f40b6947.png">
 
 ## Raccourcis claviers 
 ### Couleurs de fond
@@ -44,5 +44,23 @@ Notre editeur peut:
 - m pour blanc
 
 ## Manipulation avec la souris 
+- appuie sur l'écran principal arrête cet écran et en ouvre un autre
+- dessine des rectangles et des ellipses
+
+### Raccourcis claviers
+#### Formes
+- f pour rectangle
+- e pour ellipse
+
+#### Couleurs des formes
+- g pour vert
+- r pour rouge 
+- b pour bleu
+
+#### Epaisseurs des formes
+- 0 pour remplir la forme
+- 1 pour 1 d'épaisseur
+- 3 pour 3 d'épaisseur
+- 5 pour 5 d'épaisseur
 
 ## Conclusion 
