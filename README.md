@@ -23,7 +23,9 @@
 ## Description 
 Notre editeur peut:
 * changer de couleur de fond
-* 
+* changer de fenêtre à l'aide de la souris
+* dessiner des rectangles et des ellipses
+* changer de couleurs et d'épaisseurs
 
 ## Interfaces
 <img width="1361" alt="Capture d’écran 2021-03-13 à 16 54 52" src="https://user-images.githubusercontent.com/77683990/111035959-166b9780-841d-11eb-9d50-8dd44f5cec28.png">
