@@ -22,7 +22,7 @@
 
 ## Description 
 Notre editeur peut:
-* changer de couleur de fond
+* changer de couleur de fond et du texte
 * changer de fenêtre à l'aide de la souris
 * dessiner des rectangles et des ellipses
 * changer de couleurs et d'épaisseurs
