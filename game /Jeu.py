@@ -1,12 +1,29 @@
 import pygame
 pygame.init()
 
+# classe joueur
+class Player(pygame.sprite.Sprite):
+    
+    def __init__(self):
+        super().__init__()
+        self.health = 100
+        self.max_health = 100
+        self.attack = 10
+        self.velocity = 5
+        self.image = pygame.image.load('image/mario.jpg')
+        self.rect = self.image.get_rect()
+        self.rect.x = 300
+
 # fenetre du jeu
 pygame.display.set_caption('game')
 screen = pygame.display.set_mode((1080, 720))
 
+
 # arrière plan du jeu
 background = pygame.image.load('image/mariopaysage.jpg')
+
+# charger le joueur
+player = Player
 
 running = True
 
@@ -15,6 +32,9 @@ while running:
     
     # appliquer l'arrière plan
     screen.blit(background, (-500,-1145))
+    
+    # appliquer l'image du joueur
+    screen.blit(player.image, player.rect)
     
     # mettre à jour l'ecran
     pygame.display.flip()
