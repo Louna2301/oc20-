@@ -82,6 +82,7 @@ class Monster(pygame.sprite.Sprite):
         self.max_health = 100
         self.attack = 5
         self.image = pygame.image.load('image/bowser.png')
+        self.image = pygame.transform.scale(self.image, (200, 200))
         self.rect = self.image.get_rect()
             
 # fenetre du jeu
