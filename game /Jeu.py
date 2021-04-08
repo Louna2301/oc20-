@@ -1,13 +1,19 @@
 import pygame
 pygame.init()
 
-# class jeu
+# classe jeu
 class Game:
     
     def __init__(self):
         #generer notre joueur
         self.player = Player()
+        self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
+        self.spawn_monster()
+        
+    def spawn_monster(self):
+        monster = Monster()
+        self.all_monsters.add(monster)
       
 # classe joueur
 class Player(pygame.sprite.Sprite):
@@ -66,6 +72,17 @@ class Projectile(pygame.sprite.Sprite):
         if self.rect.x > 1080:
             #supprimer le projectile sorti de l'ecran
             self.remove()
+
+# classe monstre
+class Monster(pygame.sprite.Sprite):
+    
+    def __init__(self):
+        super().__init__()
+        self.health = 100
+        self.max_health = 100
+        self.attack = 5
+        self.image = pygame.image.load('image/bowser.png')
+        self.rect = self.image.get_rect()
             
 # fenetre du jeu
 pygame.display.set_caption('game') 
@@ -98,6 +115,9 @@ while running:
         
     # appliquer les projectiles
     game.player.all_projectiles.draw(screen)
+    
+    # appliquer les monstres
+    game.all_monsters.draw(screen)
     
     # verifier si le joueur souhaite aller a gauche ou a droite
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
