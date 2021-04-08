@@ -10,12 +10,13 @@ class Player(pygame.sprite.Sprite):
         self.max_health = 100
         self.attack = 10
         self.velocity = 5
-        self.image = pygame.image.load('image/mario.jpg')
+        self.image = pygame.image.load('image/mario.png')
         self.rect = self.image.get_rect()
         self.rect.x = 300
-
+        self.rect.y = 500
+ 
 # fenetre du jeu
-pygame.display.set_caption('game')
+pygame.display.set_caption('game') 
 screen = pygame.display.set_mode((1080, 720))
 
 
@@ -34,7 +35,7 @@ while running:
     screen.blit(background, (-500,-1145))
     
     # appliquer l'image du joueur
-    screen.blit(player.image, player.rect)
+    screen.blit(player.image, image.rect)
     
     # mettre à jour l'ecran
     pygame.display.flip()
