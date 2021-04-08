@@ -22,8 +22,10 @@
 
 ## Description 
 Notre editeur peut:
-* changer de couleur de fond
-* 
+* changer de couleur de fond et du texte
+* changer de fenêtre à l'aide de la souris
+* dessiner des rectangles et des ellipses
+* changer de couleurs et d'épaisseurs
 
 ## Interfaces
 <img width="1361" alt="Capture d’écran 2021-03-13 à 16 54 52" src="https://user-images.githubusercontent.com/77683990/111035959-166b9780-841d-11eb-9d50-8dd44f5cec28.png">
@@ -64,3 +66,4 @@ Notre editeur peut:
 - 5 pour 5 d'épaisseur
 
 ## Conclusion 
+Pour conclure, notre projet d'éditeur, a pour principal fond deux images: Mario et Browser. Nous avons également utilisé les fonctionnalités permettant de changer les couleurs derrière les 2 personnages, les couleurs du texte, de mettre des formes (les rectangles et les ellipses) et les changer de couleurs et d'épaisseur. Cependant, nous n'avons pas réussi à réaliser un résultat que nous cherchions à la base, mais nous espérons que les prochains cours nous aideront arriver à un résultat plus satisfaisant. Malgré tout, nous pensons que l'objectif de l'exercice est atteint avec notre éditeur, car nous avons respecté les consignes demandées.
