@@ -53,9 +53,12 @@ class Projectile(pygame.sprite.Sprite):
         
     def rotate(self):
         self.angle += 12
+        self.image = pygame.transform.rotozoom(self.origine_image, self.angle, 1)
+        self.rect = self.image.get_rect(center=self.rect.center) 
         
     def remove(self):
         self.player.all_projectiles.remove(self)
+        self.rotate()
         
     def move(self):
         self.rect.x += self.velocity
