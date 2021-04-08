@@ -1,6 +1,14 @@
 import pygame
 pygame.init()
 
+# class jeu
+class Game:
+    
+    def __init__(self):
+        #generer notre joueur
+        self.player = Player()
+     
+
 # classe joueur
 class Player(pygame.sprite.Sprite):
     
@@ -23,8 +31,11 @@ screen = pygame.display.set_mode((1080, 720))
 # arrière plan du jeu
 background = pygame.image.load('image/mariopaysage.jpg')
 
-# charger le joueur
-player = Player
+# charger notre jeu
+game = Game()
+
+# charger notre joueur
+player= Player()
 
 running = True
 
@@ -35,7 +46,7 @@ while running:
     screen.blit(background, (-500,-1145))
     
     # appliquer l'image du joueur
-    screen.blit(player.image, image.rect)
+    screen.blit(player.image, player.rect)
     
     # mettre à jour l'ecran
     pygame.display.flip()
