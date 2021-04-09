@@ -101,6 +101,17 @@ class Monster(pygame.sprite.Sprite):
         self.rect.y = 390
         self.velocity = 3
         
+    def update_health_bar(self, surface):
+        # couleur barre de vie
+        bar_color = (111, 210, 46)
+        
+        # position/largeur/épaisseur barre de vie
+        bar_position = [self.rect.x + 40, self.rect.y, self.health, 5]
+        
+        # dessin barre de vie
+        pygame.draw.rect(surface, bar_color, bar_position)
+        
+        
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
             self.rect.x -= self.velocity
@@ -136,6 +147,7 @@ while running:
     # recuperer les monstres
     for monster in game.all_monsters:
         monster.forward()
+        monster.update_health_bar(screen)
         
     # appliquer les projectiles
     game.player.all_projectiles.draw(screen)
