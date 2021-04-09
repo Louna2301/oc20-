@@ -6,20 +6,26 @@ class Game:
     
     def __init__(self):
         #generer notre joueur
-        self.player = Player()
+        self.all_players = pygame.sprite.Group()
+        self.player = Player(self)
+        self.all_players.add(self.player)
         self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
         self.spawn_monster()
         
     def spawn_monster(self):
-        monster = Monster()
+        monster = Monster(self)
         self.all_monsters.add(monster)
+        
+    def check_collision(self, sprite, group):
+        return pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
       
 # classe joueur
 class Player(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, game):
         super().__init__()
+        self.game = game
         self.health = 100
         self.max_health = 100
         self.attack = 10
@@ -36,7 +42,8 @@ class Player(pygame.sprite.Sprite):
         self.all_projectiles.add(Projectile(self))
     
     def move_right(self):
-        self.rect.x += self.velocity
+        if not self.game.check_collision(self, self.game.all_monsters):
+            self.rect.x += self.velocity
         
     def move_left(self):
         self.rect.x -= self.velocity
@@ -68,6 +75,11 @@ class Projectile(pygame.sprite.Sprite):
         
     def move(self):
         self.rect.x += self.velocity
+        self.rotate()
+        
+        if self.player.game.check_collision(self, self.player.game.all_monsters):
+            #supprimer le projectile qui touche un monstre
+            self.remove()
         
         if self.rect.x > 1080:
             #supprimer le projectile sorti de l'ecran
@@ -76,8 +88,9 @@ class Projectile(pygame.sprite.Sprite):
 # classe monstre
 class Monster(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, game):
         super().__init__()
+        self.game = game
         self.health = 100
         self.max_health = 100
         self.attack = 5
@@ -89,7 +102,8 @@ class Monster(pygame.sprite.Sprite):
         self.velocity = 3
         
     def forward(self):
-        self.rect.x -= self.velocity
+        if not self.game.check_collision(self, self.game.all_players):
+            self.rect.x -= self.velocity
             
 # fenetre du jeu
 pygame.display.set_caption('game') 
@@ -102,7 +116,7 @@ background = pygame.image.load('image/mariopaysage.jpg')
 game = Game()
 
 # charger notre joueur
-player= Player()
+player= Player(game)
 
 running = True
 
