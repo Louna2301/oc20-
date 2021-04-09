@@ -82,13 +82,18 @@ class Monster(pygame.sprite.Sprite):
         self.max_health = 100
         self.attack = 5
         self.image = pygame.image.load('image/bowser.png')
-        self.image = pygame.transform.scale(self.image, (200, 200))
+        self.image = pygame.transform.scale(self.image, (300, 300))
         self.rect = self.image.get_rect()
+        self.rect.x = 900
+        self.rect.y = 390
+        self.velocity = 3
+        
+    def forward(self):
+        self.rect.x -= self.velocity
             
 # fenetre du jeu
 pygame.display.set_caption('game') 
 screen = pygame.display.set_mode((1080, 720))
-
 
 # arrière plan du jeu
 background = pygame.image.load('image/mariopaysage.jpg')
@@ -113,6 +118,10 @@ while running:
     # recuperer les projectile
     for projectile in game.player.all_projectiles:
         projectile.move()
+        
+    # recuperer les monstres
+    for monster in game.all_monsters:
+        monster.forward()
         
     # appliquer les projectiles
     game.player.all_projectiles.draw(screen)
