@@ -29,10 +29,10 @@ class Player(pygame.sprite.Sprite):
         self.health = 100
         self.max_health = 100
         self.attack = 10
-        self.velocity = 3
+        self.velocity = 1
         self.all_projectiles = pygame.sprite.Group()
         self.image = pygame.image.load('image/mario.png')
-        self.image = pygame.transform.scale(self.image, (250, 250))
+        self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 435
@@ -95,11 +95,11 @@ class Monster(pygame.sprite.Sprite):
         self.max_health = 100
         self.attack = 5
         self.image = pygame.image.load('image/bowser.png')
-        self.image = pygame.transform.scale(self.image, (300, 300))
+        self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect()
-        self.rect.x = 900
-        self.rect.y = 390
-        self.velocity = 3
+        self.rect.x = 1000
+        self.rect.y = 525
+        self.velocity = 1
         
     def update_health_bar(self, surface):
         # couleur barre de vie
