@@ -35,7 +35,7 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect()
         self.rect.x = 100
-        self.rect.y = 435
+        self.rect.y = 525
         
     def launch_projectile(self):
         #creer une nouvelle instance de la classe projectile
