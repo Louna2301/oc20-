@@ -1,4 +1,5 @@
 import pygame
+import random
 pygame.init()
 
 # classe jeu
@@ -11,6 +12,7 @@ class Game:
         self.all_players.add(self.player)
         self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
+        self.spawn_monster()
         self.spawn_monster()
         
     def spawn_monster(self):
@@ -36,6 +38,11 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 525
+        
+    def update_health_bar(self, surface):
+        # dessin barre de vie
+        pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 40, self.rect.y - 10, self.max_health, 5])
+        pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 40, self.rect.y - 10, self.health, 5])
         
     def launch_projectile(self):
         #creer une nouvelle instance de la classe projectile
@@ -77,9 +84,11 @@ class Projectile(pygame.sprite.Sprite):
         self.rect.x += self.velocity
         self.rotate()
         
-        if self.player.game.check_collision(self, self.player.game.all_monsters):
+        for monster in self.player.game.check_collision(self, self.player.game.all_monsters):
             #supprimer le projectile qui touche un monstre
             self.remove()
+            # infliger des degats
+            monster.damage(self.player.attack)
         
         if self.rect.x > 1080:
             #supprimer le projectile sorti de l'ecran
@@ -97,24 +106,25 @@ class Monster(pygame.sprite.Sprite):
         self.image = pygame.image.load('image/bowser.png')
         self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect()
-        self.rect.x = 1000
+        self.rect.x = 1000 + random.randint(0, 300)
         self.rect.y = 525
-        self.velocity = 1
+        self.velocity = random.randint(1, 3)
+    
+    def damage(self, amount):
+        # Infliger les degats
+        self.health -= amount
+        
+        # verifier si son nouveau nombre de points de vie est inferieur ou egal à 0
+        if self.health <= 0:
+            # Reapparaitre comme un nouveau monstre
+            self.rect.x = 1000 + random.randint(0, 300)
+            self.velocity = random.randint(1, 3)
+            self.health = self.max_health
         
     def update_health_bar(self, surface):
-        # couleur barre de vie
-        bar_color = (111, 210, 46)
-        # couleur arrière plan barre de vie
-        back_bar_color = (60, 63, 60)
-        
-        # position/largeur/épaisseur barre de vie
-        bar_position = [self.rect.x + 40, self.rect.y, self.health, 5]
-        # position arrière plan barre de vie
-        back_bar_position = [self.rect.x + 40, self.rect.y, self.max_health, 5]
-        
         # dessin barre de vie
-        pygame.draw.rect(surface, back_bar_color, back_bar_position)
-        pygame.draw.rect(surface, bar_color, bar_position)
+        pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 40, self.rect.y, self.max_health, 5])
+        pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 40, self.rect.y, self.health, 5])
           
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
@@ -143,6 +153,9 @@ while running:
     
     # appliquer l'image du joueur
     screen.blit(game.player.image, game.player.rect)
+    
+    # actualiser la barre de vie du joueur
+    game.player.update_health_bar(screen)
     
     # recuperer les projectile
     for projectile in game.player.all_projectiles:
