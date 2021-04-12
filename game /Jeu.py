@@ -8,7 +8,7 @@ class Game:
     
     def __init__(self):
         # definir si notre jeu a commencé
-        self.is_playing = False
+        self.is_playing = True
         #generer notre joueur
         self.all_players = pygame.sprite.Group()
         self.player = Player(self)
@@ -259,6 +259,7 @@ class Comet(pygame.sprite.Sprite):
     def __init__(self, comet_event):
         super().__init__()
         self.image = pygame.image.load('image/piece.png')
+        self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
         self.velocity = random.randint(1, 3)
         self.rect.x = random.randint(20, 800)
