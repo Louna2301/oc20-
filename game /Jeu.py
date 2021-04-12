@@ -13,6 +13,7 @@ class Game:
         self.all_players = pygame.sprite.Group()
         self.player = Player(self)
         self.all_players.add(self.player)
+        self.comet_event = CometFallEvent(self)
         self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
         
@@ -24,7 +25,9 @@ class Game:
     def game_over(self):
         #remettre le jeu à neuf, retirer les monstres, remettre le joueur à 100 de vie, jeu en attente
         self.all_monsters = pygame.sprite.Group()
+        self.comet_event.all_comets = pygame.sprite.Group()
         self.player.health = self.player.max_health
+        self.comet_event.reset_percent()
         self.is_playing = False
         
     def update(self, screen):
@@ -33,6 +36,9 @@ class Game:
     
         # actualiser la barre de vie du joueur
         self.player.update_health_bar(screen)
+        
+        # actualiser la barre d'evenement du jeu
+        self.comet_event.update_bar(screen)
     
         # recuperer les projectile
         for projectile in self.player.all_projectiles:
@@ -42,12 +48,19 @@ class Game:
         for monster in self.all_monsters:
             monster.forward()
             monster.update_health_bar(screen)
+            
+        # recuperer les cometes
+        for comet in self.comet_event.all_comets:
+            comet.fall()
         
         # appliquer les projectiles
         self.player.all_projectiles.draw(screen)
     
         # appliquer les monstres
         self.all_monsters.draw(screen)
+        
+        # appliquer l'ensemble des images de mon groupe de cometes
+        self.comet_event.all_comets.draw(screen)
     
         # verifier si le joueur souhaite aller a gauche ou a droite
         if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < screen.get_width():
@@ -167,6 +180,12 @@ class Monster(pygame.sprite.Sprite):
             self.rect.x = 1000 + random.randint(0, 300)
             self.velocity = random.randint(1, 3)
             self.health = self.max_health
+            
+            # si la barre d'evenement est chargee au max
+            if self.game.comet_event.is_full_loaded():
+                self.game.all_monsters.remove(self)
+                
+            self.game.comet_event.attempt_fall()
         
     def update_health_bar(self, surface):
         # dessin barre de vie
@@ -180,7 +199,107 @@ class Monster(pygame.sprite.Sprite):
         else:
             # infliger des degats (au joueur)
             self.game.player.damage(self.attack)
+
+#classe evenement
+class CometFallEvent:
+    # lors du chargement -> créer un compteur
+    def __init__(self, game):
+        self.percent = 0
+        self.percent_speed = 5
+        self.game = game
+        self.fall_mode = False
+        
+        # definir un groupe de sprite pour definir nos cometes
+        self.all_comets = pygame.sprite.Group()
+        
+    def add_percent(self):
+        self.percent +=  self.percent_speed / 100
+        
+    def is_full_loaded(self):
+        return self.percent >= 100
+    
+    def reset_percent(self):
+        self.percent = 0
+        
+    def meteor_fall(self):
+        for i in range(1, 10):
+            self.all_comets.add(Comet(self))
+    
+    def attempt_fall(self):
+        # la jauge d'evenement est totalement chargee
+        if self.is_full_loaded() and len(self.game.all_monsters) == 0:
+            print('Pluie de cometes!!!')
+            self.meteor_fall()
+            self.fall_mode = True
+        
+    def update_bar(self, surface):
+        
+        # ajouter du pourcentage a la barre
+        self.add_percent()
+        
+        
+        # barre noir (arriere plan)
+        pygame.draw.rect(surface, (0, 0, 0), [
+                0, # axe x
+                surface.get_height() - 20, # axe y
+                surface.get_width(), # longueur fenetre
+                10 # epaisseur de la barre
+            ])
+        # barre rouge (jauge d'evenement)
+        pygame.draw.rect(surface, (187, 11, 11), [
+                0, # axe x
+                surface.get_height() - 20, # axe y
+                (surface.get_width() / 100) * self.percent, # longueur fenetre
+                10 # epaisseur de la barre
+            ])
+        
+# classe comete
+class Comet(pygame.sprite.Sprite):
+    
+    def __init__(self, comet_event):
+        super().__init__()
+        self.image = pygame.image.load('image/piece.png')
+        self.rect = self.image.get_rect()
+        self.velocity = random.randint(1, 3)
+        self.rect.x = random.randint(20, 800)
+        self.rect.y = -random.randint(0, 800)
+        self.comet_event = comet_event
+        
+    def remove(self):
+        self.comet_event.all_comets.remove(self)
+        
+        #verifier si le nombre de cometes est de 0
+        if len(self.comet_event.all_comets) == 0:
+            #remettre la barre a 0
+            self.comet_event.reset_percent()
+            # apparaitre les deux premiers monstres
+            self.comet_event.game.spawn_monster()
+            self.comet_event.game.spawn_monster()
+        
+    def fall(self):
+        self.rect.y += self.velocity
+        
+        # ne tombe pas sur le sol
+        if self.rect.y >= 500:
+            print('sol')
+            #retirer la piece
+            self.remove()
             
+            # si il n'y a plus de piece
+            if len(self.comet_event.all_comets) == 0:
+                print('evenement est fini')
+                self.comet_event.reset_percent()
+                self.comet_event.fall_mode = False
+            
+        # verifier si la piece touche le joueur
+        if self.comet_event.game.check_collision(
+            self, self.comet_event.game.all_players
+            ):
+                print('joueur touché')
+                self.remove()
+                # subir degats
+                self.comet_event.game.player.damage(20)
+        
 # fenetre du jeu
 pygame.display.set_caption('game') 
 screen = pygame.display.set_mode((1080, 720))
