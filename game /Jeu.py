@@ -104,14 +104,18 @@ class Monster(pygame.sprite.Sprite):
     def update_health_bar(self, surface):
         # couleur barre de vie
         bar_color = (111, 210, 46)
+        # couleur arrière plan barre de vie
+        back_bar_color = (60, 63, 60)
         
         # position/largeur/épaisseur barre de vie
         bar_position = [self.rect.x + 40, self.rect.y, self.health, 5]
+        # position arrière plan barre de vie
+        back_bar_position = [self.rect.x + 40, self.rect.y, self.max_health, 5]
         
         # dessin barre de vie
+        pygame.draw.rect(surface, back_bar_color, back_bar_position)
         pygame.draw.rect(surface, bar_color, bar_position)
-        
-        
+          
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
             self.rect.x -= self.velocity
