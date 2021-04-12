@@ -16,7 +16,6 @@ class Game:
         self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
         
-        
     def start(self):
         self.is_playing = True
         self.spawn_monster()
