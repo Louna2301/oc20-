@@ -189,8 +189,8 @@ screen = pygame.display.set_mode((1080, 720))
 background = pygame.image.load('image/mariopaysage.jpg')
 
 # importer notre banière
-banner = pygame.image.load('image/carapace.png')
-banner = pygame.transform.scale(banner, (500, 500))
+banner = pygame.image.load('image/banner.png')
+banner = pygame.transform.scale(banner, (500, 400))
 banner_rect = banner.get_rect()
 banner_rect.x = math.ceil(screen.get_width() / 4)
 
