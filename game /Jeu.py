@@ -1,4 +1,5 @@
 import pygame
+import math
 import random
 pygame.init()
 
@@ -6,14 +7,54 @@ pygame.init()
 class Game:
     
     def __init__(self):
+        # definir si notre jeu a commencé
+        self.is_playing = False
         #generer notre joueur
         self.all_players = pygame.sprite.Group()
         self.player = Player(self)
         self.all_players.add(self.player)
         self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
+        
+        
+    def start(self):
+        self.is_playing = True
         self.spawn_monster()
         self.spawn_monster()
+        
+    def game_over(self):
+        #remettre le jeu à neuf, retirer les monstres, remettre le joueur à 100 de vie, jeu en attente
+        self.all_monsters = pygame.sprite.Group()
+        self.player.health = self.player.max_health
+        self.is_playing = False
+        
+    def update(self, screen):
+        # appliquer l'image du joueur
+        screen.blit(self.player.image, self.player.rect)
+    
+        # actualiser la barre de vie du joueur
+        self.player.update_health_bar(screen)
+    
+        # recuperer les projectile
+        for projectile in self.player.all_projectiles:
+            projectile.move()
+        
+        # recuperer les monstres
+        for monster in self.all_monsters:
+            monster.forward()
+            monster.update_health_bar(screen)
+        
+        # appliquer les projectiles
+        self.player.all_projectiles.draw(screen)
+    
+        # appliquer les monstres
+        self.all_monsters.draw(screen)
+    
+        # verifier si le joueur souhaite aller a gauche ou a droite
+        if self.pressed.get(pygame.K_RIGHT) and self.player.rect.x + self.player.rect.width < screen.get_width():
+            self.player.move_right()
+        elif self.pressed.get(pygame.K_LEFT) and self.player.rect.x:
+            self.player.move_left()
         
     def spawn_monster(self):
         monster = Monster(self)
@@ -38,6 +79,13 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 525
+        
+    def damage(self, amount):
+        if self.health - amount > amount:
+            self.health -= amount
+        else:
+            # si le joueur n'a plus de point de vie
+            self.game.game_over()
         
     def update_health_bar(self, surface):
         # dessin barre de vie
@@ -102,7 +150,7 @@ class Monster(pygame.sprite.Sprite):
         self.game = game
         self.health = 100
         self.max_health = 100
-        self.attack = 5
+        self.attack = 0.3
         self.image = pygame.image.load('image/bowser.png')
         self.image = pygame.transform.scale(self.image, (150, 150))
         self.rect = self.image.get_rect()
@@ -129,6 +177,10 @@ class Monster(pygame.sprite.Sprite):
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
             self.rect.x -= self.velocity
+        # si le monstre est en collision avec le joueur
+        else:
+            # infliger des degats (au joueur)
+            self.game.player.damage(self.attack)
             
 # fenetre du jeu
 pygame.display.set_caption('game') 
@@ -136,6 +188,19 @@ screen = pygame.display.set_mode((1080, 720))
 
 # arrière plan du jeu
 background = pygame.image.load('image/mariopaysage.jpg')
+
+# importer notre banière
+banner = pygame.image.load('image/carapace.png')
+banner = pygame.transform.scale(banner, (500, 500))
+banner_rect = banner.get_rect()
+banner_rect.x = math.ceil(screen.get_width() / 4)
+
+#importer notre bouton pour lancer la partie
+play_button = pygame.image.load('image/button.png')
+play_button = pygame.transform.scale(play_button, (400, 150))
+play_button_rect = play_button.get_rect()
+play_button_rect.x = math.ceil(screen.get_width() / 3.33)
+play_button_rect.y = math.ceil(screen.get_height() / 2)
 
 # charger notre jeu
 game = Game()
@@ -151,33 +216,16 @@ while running:
     # appliquer l'arrière plan
     screen.blit(background, (-500,-1145))
     
-    # appliquer l'image du joueur
-    screen.blit(game.player.image, game.player.rect)
-    
-    # actualiser la barre de vie du joueur
-    game.player.update_health_bar(screen)
-    
-    # recuperer les projectile
-    for projectile in game.player.all_projectiles:
-        projectile.move()
+    # verifier si notre jeu a commencé
+    if game.is_playing:
+        # declencher les instructions de la partie
+        game.update(screen)
+    # verifier si notre jeu n'a pas commencé
+    else:
+        # ajouter mon ecran de bienvenue
+        screen.blit(play_button, (play_button_rect))
+        screen.blit(banner, (banner_rect))
         
-    # recuperer les monstres
-    for monster in game.all_monsters:
-        monster.forward()
-        monster.update_health_bar(screen)
-        
-    # appliquer les projectiles
-    game.player.all_projectiles.draw(screen)
-    
-    # appliquer les monstres
-    game.all_monsters.draw(screen)
-    
-    # verifier si le joueur souhaite aller a gauche ou a droite
-    if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < screen.get_width():
-        game.player.move_right()
-    elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x:
-        game.player.move_left()
-    
     # mettre à jour l'ecran
     pygame.display.flip()
     
@@ -202,3 +250,9 @@ while running:
             
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
+            
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # verifier pour savoir si on appuie sur la souris
+            if play_button_rect.collidepoint(event.pos):
+                # mettre le jeu en mode 'lancé'
+                game.start()
