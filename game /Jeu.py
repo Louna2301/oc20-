@@ -293,7 +293,7 @@ class Comet(pygame.sprite.Sprite):
         self.rect.y += self.velocity
         
         # ne tombe pas sur le sol
-        if self.rect.y >= 500:
+        if self.rect.y >= 600:
             print('sol')
             #retirer la piece
             self.remove()
@@ -312,7 +312,8 @@ class Comet(pygame.sprite.Sprite):
                 self.remove()
                 # subir degats
                 self.comet_event.game.player.damage(20)
-        
+
+
 # fenetre du jeu
 pygame.display.set_caption('game') 
 screen = pygame.display.set_mode((1080, 720))
