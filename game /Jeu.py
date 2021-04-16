@@ -37,7 +37,7 @@ class Game:
         
     def update(self, screen):
         # afficher le score sur l'ecran
-        font = pygame.font.SysFont('monospace', 16)
+        font = pygame.font.SysFont('monospace', 20)
         score_text = font.render(f'Score : {self.score}', 1, (0, 0, 0))
         screen.blit(score_text, (20, 20))
         
