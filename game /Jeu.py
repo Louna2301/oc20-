@@ -15,12 +15,16 @@ class Game:
         self.all_players.add(self.player)
         self.comet_event = CometFallEvent(self)
         self.all_monsters = pygame.sprite.Group()
+        self.score = 0
         self.pressed = {}
         
     def start(self):
         self.is_playing = True
         self.spawn_monster()
         self.spawn_monster()
+        
+    def add_score(self, points):
+        self.score += points
         
     def game_over(self):
         #remettre le jeu à neuf, retirer les monstres, remettre le joueur à 100 de vie, jeu en attente
@@ -29,8 +33,14 @@ class Game:
         self.player.health = self.player.max_health
         self.comet_event.reset_percent()
         self.is_playing = False
+        self.score = 0
         
     def update(self, screen):
+        # afficher le score sur l'ecran
+        font = pygame.font.SysFont('monospace', 16)
+        score_text = font.render(f'Score : {self.score}', 1, (0, 0, 0))
+        screen.blit(score_text, (20, 20))
+        
         # appliquer l'image du joueur
         screen.blit(self.player.image, self.player.rect)
     
@@ -160,15 +170,15 @@ class Monster(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.health = 100
-        self.max_health = 100
+        self.health = 75
+        self.max_health = 75
         self.attack = 0.3
-        self.image = pygame.image.load('image/bowser.png')
-        self.image = pygame.transform.scale(self.image, (150, 150))
+        self.image = pygame.image.load('image/goomba.png')
+        self.image = pygame.transform.scale(self.image, (100, 100))
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
-        self.rect.y = 525
-        self.velocity = random.randint(1, 3)
+        self.rect.y = 560
+        self.velocity = random.randint(1, 2)
     
     def damage(self, amount):
         # Infliger les degats
@@ -180,6 +190,8 @@ class Monster(pygame.sprite.Sprite):
             self.rect.x = 1000 + random.randint(0, 300)
             self.velocity = random.randint(1, 3)
             self.health = self.max_health
+            # ajouter le nombre de points
+            self.game.add_score(20)
             
             # si la barre d'evenement est chargee au max
             if self.game.comet_event.is_full_loaded():
@@ -189,8 +201,8 @@ class Monster(pygame.sprite.Sprite):
         
     def update_health_bar(self, surface):
         # dessin barre de vie
-        pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 40, self.rect.y, self.max_health, 5])
-        pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 40, self.rect.y, self.health, 5])
+        pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 10, self.rect.y - 20, self.max_health, 5])
+        pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 10, self.rect.y - 20, self.health, 5])
           
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
@@ -258,7 +270,7 @@ class Comet(pygame.sprite.Sprite):
     
     def __init__(self, comet_event):
         super().__init__()
-        self.image = pygame.image.load('image/piece.png')
+        self.image = pygame.image.load('image/picpic.png')
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
         self.velocity = random.randint(1, 3)
