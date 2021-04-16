@@ -170,8 +170,8 @@ class Monster(pygame.sprite.Sprite):
     def __init__(self, game):
         super().__init__()
         self.game = game
-        self.health = 75
-        self.max_health = 75
+        self.health = 65
+        self.max_health = 65
         self.attack = 0.3
         self.image = pygame.image.load('image/goomba.png')
         self.image = pygame.transform.scale(self.image, (100, 100))
@@ -201,8 +201,8 @@ class Monster(pygame.sprite.Sprite):
         
     def update_health_bar(self, surface):
         # dessin barre de vie
-        pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 10, self.rect.y - 20, self.max_health, 5])
-        pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 10, self.rect.y - 20, self.health, 5])
+        pygame.draw.rect(surface, (60, 63, 60), [self.rect.x + 15, self.rect.y - 20, self.max_health, 5])
+        pygame.draw.rect(surface, (111, 210, 46), [self.rect.x + 15, self.rect.y - 20, self.health, 5])
           
     def forward(self):
         if not self.game.check_collision(self, self.game.all_players):
