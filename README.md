@@ -5,3 +5,5 @@ Le joueur (Mario) doit vaincre les monstres (Goomba) à l'aide de ses munitions 
 ## Règles du jeu
 Aider Mario a survivre face au Goomba et aux pluies de Pic-Pic.
 
+## Fin du jeu
+Le jeu prend fin au moment où Mario n'a plus de vie.
