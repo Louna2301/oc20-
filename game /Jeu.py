@@ -328,7 +328,7 @@ banner_rect = banner.get_rect()
 banner_rect.x = math.ceil(screen.get_width() / 4)
 
 #importer notre bouton pour lancer la partie
-play_button = pygame.image.load('image/button.png')
+play_button = pygame.image.load('image/play.jpg')
 play_button = pygame.transform.scale(play_button, (400, 150))
 play_button_rect = play_button.get_rect()
 play_button_rect.x = math.ceil(screen.get_width() / 3.33)
