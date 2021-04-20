@@ -12,6 +12,8 @@ Notre jeu consiste à mettre un personnage, donc nous avons pris Mario, et le me
 
 <img width="822" alt="Capture d’écran 2021-04-19 à 21 19 56" src="https://user-images.githubusercontent.com/77742973/115346900-0d56ae80-a1b1-11eb-810b-0676f19f496b.png">
 
+Mario commence à attaquer avec ses munitions carapaces.  Nous avons utiliser la class projectile. 
+
 
 ## Règles du jeu
 Grâce aux munitions carapaces, aide Mario à survivre face au Goomba et aux pluies de Pic-Pic. 
