@@ -6,6 +6,8 @@ Notre jeu consiste à mettre un personnage, donc nous avons pris Mario, et le me
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 39 54" src="https://user-images.githubusercontent.com/77683990/115272981-481ffe80-a13f-11eb-9eb4-4d87cf8178fa.png">
 
+Sur cette image, nous venons de lancer le jeu, nous pouvons constater que le joueur, Mario (de la classe 'Player') ainsi que les adversaires, les Goomba (de la classe 'Monster') sont apparus. Les barres de vie sont encore toutes pleines (exclusivement de couleur verte), car aucune confrontation (collision) n'a encore eu lieu.
+
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 41 18" src="https://user-images.githubusercontent.com/77683990/115273018-53732a00-a13f-11eb-9d14-69451be117ad.png">
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 43 30" src="https://user-images.githubusercontent.com/77683990/115273025-553ced80-a13f-11eb-9460-1008cb8f194b.png">
