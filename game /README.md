@@ -22,3 +22,7 @@ Alors, quel sera ton score ??
 
 ## Fin du jeu
 Le jeu prend fin au moment où Mario n'a plus de vie.  
+
+## Références
+https://www.youtube.com/watch?v=lXwZAJkTr1k&t=313s
+https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
