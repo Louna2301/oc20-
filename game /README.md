@@ -6,7 +6,7 @@ Notre jeu consiste à mettre un personnage, donc nous avons pris Mario, et le me
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 39 54" src="https://user-images.githubusercontent.com/77683990/115272981-481ffe80-a13f-11eb-9eb4-4d87cf8178fa.png">
 
-Sur cette image, nous venons de lancer le jeu, nous pouvons constater que le joueur, Mario (de la classe 'Player') ainsi que les adversaires, les Goomba (de la classe 'Monster') sont apparus. Les barres de vie sont encore toutes pleines (exclusivement de couleur verte), car aucune confrontation (collision) n'a encore eu lieu. C'est également pour cette raison que le score (en haut à gauche est encore égal à 0). 
+Sur cette image, nous venons de lancer le jeu, nous pouvons constater que le joueur, Mario (de la classe 'Player') ainsi que les adversaires, les Goomba (de la classe 'Monster') sont apparus. Les barres de vie sont encore toutes pleines (exclusivement de couleur verte), car aucune confrontation (collision) n'a encore eu lieu. C'est également pour cette raison que le score (en haut à gauche est encore égal à 0). La barre du bas, qui sert à enclancher les pluies de Pic-Pic est en train de se remplire. Nous le voyons, car la couleur rouge devient de plus en plus présent sur la barre.
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 41 18" src="https://user-images.githubusercontent.com/77683990/115273018-53732a00-a13f-11eb-9d14-69451be117ad.png">
 
