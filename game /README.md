@@ -21,7 +21,7 @@ Le jeu continue avec cette image. Cette fois-ci Mario et les Goomba ont commenc�
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 43 30" src="https://user-images.githubusercontent.com/77683990/115273025-553ced80-a13f-11eb-9460-1008cb8f194b.png">
 
-Mario commence à attaquer avec ses munitions carapaces.  Nous avons utiliser la class projectile. 
+Après l'attaque des Goomba, une pluie de Pic-pic va commmencer à entrer en scène. C'est une étape différente qu'une attaque de Goomba. Il ne pourra pas se défendre avec ses attaques carapaces et donc, il faudra qu'il se déplace à droite ou à gauche. Les fonctions move_right(self) pour bouger à droite et move_left(self) pour s'orienter vers la gauche vont avoir une meilleure utilisation dans cette étape. Pour cela, utilisez les touches <- et ->. Après avoir un reçu un Pic Pic, Mario perdera des points dans la barre de vie. C'est la même fonctionnalité que les collisions avec des Goomba. 
 
 
 ## Règles du jeu
