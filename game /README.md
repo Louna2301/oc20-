@@ -12,7 +12,7 @@ Sur cette image, le jeu vient d'avoir été lancé. Le joueur, Mario (généré 
 
 <img width="822" alt="Capture d’écran 2021-04-19 à 21 19 56" src="https://user-images.githubusercontent.com/77742973/115346900-0d56ae80-a1b1-11eb-810b-0676f19f496b.png">
 
-Mario doit devoir se défendre et pour cela, avec la class projectile, il va pouvoir lancer de attaques sous forme de carapace pour ainsi vaincre ces Goomba. Pour pouvoir les activer, utilisez la barre d'espace. Quand les carapaces vont rentrer en collision avec les monstres, leur barres de vies vont diminuer jusqu'à ce qu'il n'y ait plus rien: dans ce cas-là, ils meurent et disparaîssent. Mais faites attention, d'autres monstres vont arriver avec des vitesses différentes. Arrivez-vous à gérer plusieurs Goomba à la fois ?? 
+Mario doit se défendre et pour cela, avec la classe 'Projectile', il va pouvoir lancer des attaques sous forme de carapace pour ainsi vaincre ces Goomba. Pour pouvoir les activer, utilisez la barre d'espace. Quand les carapaces vont rentrer en collision avec les monstres, leur barres de vies vont diminuer jusqu'à ce qu'il n'y ait plus rien: dans ce cas-là, ils meurent et disparaîssent. Mais faites attention, d'autres monstres vont arriver avec des vitesses différentes. Arrivez-vous à gérer plusieurs Goomba à la fois ?? 
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 41 18" src="https://user-images.githubusercontent.com/77683990/115273018-53732a00-a13f-11eb-9d14-69451be117ad.png">
 
@@ -20,7 +20,7 @@ Le jeu continue avec cette image. Cette fois-ci Mario et les Goomba ont commenc�
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 43 30" src="https://user-images.githubusercontent.com/77683990/115273025-553ced80-a13f-11eb-9460-1008cb8f194b.png">
 
-Après l'attaque des Goomba, une pluie de Pic-pic va commmencer à entrer en scène. C'est une étape différente qu'une attaque de Goomba. Il ne pourra pas se défendre avec ses attaques carapaces et donc, il faudra qu'il se déplace à droite ou à gauche. Les fonctions, move_right(self) pour bouger à droite et move_left(self) pour s'orienter vers la gauche, vont avoir une meilleure utilisation dans cette étape. Pour cela, utilisez les touches <- et ->. Après avoir un reçu un Pic Pic, Mario perdera des points dans la barre de vie. C'est la même fonctionnalité que les collisions avec des Goomba. 
+Une fois la barre inférieur de l'écran remplie de rouge, les Goomba vont disparaitre pour un moment, afin de laisser place à une pluie de Pic-pic. C'est une étape différente qu'une attaque de Goomba. Il ne pourra pas se défendre avec ses attaques carapaces et donc, il faudra qu'il se déplace à droite ou à gauche. Les fonctions, move_right(self) pour bouger à droite et move_left(self) pour s'orienter vers la gauche, vont avoir une meilleure utilisation dans cette étape. Pour cela, utilisez les touches <- et ->. Après avoir un reçu un Pic Pic, Mario perdera des points dans la barre de vie. C'est la même fonctionnalité que les collisions avec des Goomba. 
 
 
 ## Règles du jeu
