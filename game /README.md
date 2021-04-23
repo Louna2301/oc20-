@@ -28,7 +28,7 @@ Une fois la barre inférieur de l'écran remplie de rouge, les Goomba vont dispa
 ## Règles du jeu
 Grâce aux munitions carapaces, aide Mario à survivre face au Goomba et aux pluies de Pic-Pic. 
 
-Alors, quel sera ton score ?? 
+Alors, quel sera votre score ?? 
 
 ## Fin du jeu
 Le jeu prend fin au moment où Mario n'a plus de vie.  
