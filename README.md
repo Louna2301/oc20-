@@ -1,4 +1,4 @@
-# oc20-
+# oc20
 ## Créer un jeu avec Pygame
 Pour mettre en pratique nos connaissances théoriques nous allons créer un jeu:
 
