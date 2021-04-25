@@ -1,6 +1,7 @@
 # Game
 ## Présentation du jeu
 Notre jeu consiste à mettre un personnage, nous avons pris Mario, face à des monstres tels que des Goomba. A l'aide de ses munitions en forme de carapaces, sa mission sera ainsi de vaincre ces montres. Un Goomba tué lui fera remporter 20 points. A certains moment du jeu, l'ennemi ne sera plus des Goomba mais une pluie de boules piquantes (Pic-pic), cette apparition va venir compliquer la situation de notre Mario. Au-dessus de chaque personnages, il y aura une barre de vie, ainsi nous pourrons regarder l'état du joueur comme ceux des ennemis. En bas de l'écran, une barre se remplira au fur et à mesure que le jeu avance: c'est pour nous prévenir quand est-ce qu'il y aura un changement entre une attaque de Goomba et une pluie de Pic-pic. 
+
 Les commandes que nous devrons utiliser sont :
 * ➡️ : avancer en direction des ennemis ou esciver les Pic-pic
 * ⬅️ : reculer
