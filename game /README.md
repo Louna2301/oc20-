@@ -13,11 +13,11 @@ Nous avons donc l'écran de départ (Super Mario Play), pour pouvoir commencer l
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 39 54" src="https://user-images.githubusercontent.com/77683990/115272981-481ffe80-a13f-11eb-9eb4-4d87cf8178fa.png">
 
-Sur cette image, le jeu vient d'avoir été lancé. Le joueur, Mario (généré par la classe ``Player``), ainsi que ses adversaire, les Goomba (généré par la classe ``Monster``) viennent d'apparaitre. Nous pouvons voir que la partie vient d'être lancée, car les barres de vie sont encore pleine (entièrement verte), il n'y a encore eu aucune confrontation (aucune collision). Nous pouvons également le remarquer, car le score (inscrit en haut à gauche) est encore égal à 0. La barre en bas de l'écran, qui sert au déclanchement des pluie de Pic-pic (généré par la classe ``Comet``), est en train de se remplire, nous pouvons le remarqué car elle devient de plus en plus rouge.
+Sur cette image, le jeu vient d'avoir été lancé. Le joueur, Mario (généré par la classe ``Player``), ainsi que ses adversaire, les Goomba (générés par la classe ``Monster``) viennent d'apparaître. Nous pouvons voir que la partie vient d'être lancée, car les barres de vie sont encore pleines (entièrement vertes), il n'y a encore eu aucune confrontation (aucune collision). Nous pouvons également le remarquer, car le score (inscrit en haut à gauche) est encore égal à 0. La barre en bas de l'écran, qui sert au déclanchement des pluie de Pic-pic (généré par la classe ``Comet``), est en train de se remplire, nous pouvons le remarquer, car elle devient de plus en plus rouge.
 
 <img width="822" alt="Capture d’écran 2021-04-19 à 21 19 56" src="https://user-images.githubusercontent.com/77742973/115346900-0d56ae80-a1b1-11eb-810b-0676f19f496b.png">
 
-Mario doit se défendre et pour cela, avec la classe ``Projectile``, il va pouvoir lancer des attaques sous forme de carapace pour ainsi vaincre ces Goomba. Pour pouvoir les activer, utilisez la touche ``espace``. Quand les carapaces vont rentrer en collision avec les monstres, leur barres de vies vont diminuer jusqu'à ce qu'il n'y ait plus rien: dans ce cas-là, ils meurent et disparaîssent. Mais faites attention, d'autres monstres vont arriver avec des vitesses différentes. Arrivez-vous à gérer plusieurs Goomba à la fois ?? 
+Mario doit se défendre et pour cela, avec la classe ``Projectile``, il va pouvoir lancer des attaques sous forme de carapaces pour ainsi vaincre les Goomba. Pour pouvoir les activer, nous utilisons la touche ``espace``. Quand les carapaces vont rentrer en collision avec les monstres, leur barres de vie vont diminuer jusqu'à ce qu'il n'y ait plus rien: dans ce cas-là, ils meurent et disparaîssent. Mais faisons attention, d'autres monstres vont arriver avec des vitesses différentes. Arriverons-nous à gérer plusieurs Goomba à la fois ?? 
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 41 18" src="https://user-images.githubusercontent.com/77683990/115273018-53732a00-a13f-11eb-9d14-69451be117ad.png">
 
@@ -30,7 +30,7 @@ Une fois la barre inférieur de l'écran remplie de rouge, les Goomba vont dispa
 ## Règles du jeu
 Grâce aux munitions carapaces, aide Mario à survivre face au Goomba et aux pluies de Pic-Pic. 
 
-Alors, quel sera votre score ?? 
+Alors, quel sera notre score ?? 
 
 ## Fin du jeu
 Le jeu prend fin au moment où Mario n'a plus de vie.  
