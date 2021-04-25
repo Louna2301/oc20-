@@ -315,7 +315,7 @@ class Comet(pygame.sprite.Sprite):
 
 
 # fenetre du jeu
-pygame.display.set_caption('game') 
+pygame.display.set_caption('supermario') 
 screen = pygame.display.set_mode((1080, 720))
 
 # arrière plan du jeu
