@@ -3,7 +3,7 @@
 Notre jeu consiste à mettre un personnage, nous avons pris Mario, et le mettre face aux monstres tels que Goomba. A l'aide de ses munitions en forme de carapaces, sa mission sera ainsi de vaincre ses montres. Un Goomba tué lui donnera 20 points. A certains moment du jeu, l'ennemi ne sera plus des Goomba mais une pluie de boules piquantes (Pic-pic), cette apparition va venir compliquer la situation de notre Mario. Au-dessus de chaque personnages, il y aura une barre de vie, ainsi nous pourrons regarder l'état du joueur comme ceux des ennemis. En bas, nous pourrons remarquer une barre qui se remplira au fur et à mesure que le jeu avance: c'est pour nous prévenir quand est-ce qu'il y aura un changement entre une attaque de Goomba ou une pluie de Pic-pic. Les commandes que nous devrons utiliser sont :
 * ➡️ : avancer en direction des ennemis ou esciver les PIc-pic
 * ⬅️ : reculer
-* la touche ``espace``: tirer les carapaces
+* ``espace``: tirer les carapaces
 
 <img width="1192" alt="Capture d’écran 2021-04-19 à 18 41 10" src="https://user-images.githubusercontent.com/77683990/115272962-43f3e100-a13f-11eb-8844-157f84460fe5.png">
 
