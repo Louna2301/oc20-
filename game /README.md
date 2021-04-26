@@ -28,7 +28,7 @@ Le jeu continue avec cette image. Cette fois-ci Mario et les Goomba ont commenc�
 Une fois la barre inférieur de l'écran remplie de rouge, les Goomba vont disparaitre pour un moment, afin de laisser place à une pluie de Pic-pic. C'est une étape différente qu'une attaque de Goomba. Il ne pourra pas se défendre avec ses attaques carapaces et donc, il faudra qu'il se déplace à droite ou à gauche. Les méthodes `` move_right`` pour bouger à droite et ``move_left`` pour s'orienter vers la gauche, vont avoir une meilleure utilisation dans cette étape. Pour cela, utilisez les touches ⬅️ et ➡️. Après avoir un reçu un Pic Pic, Mario perdera des points dans la barre de vie. C'est la même fonctionnalité que les collisions avec des Goomba. 
 
 ## Règles du jeu
-Grâce aux munitions carapaces, aide Mario à survivre face au Goomba et aux pluies de Pic-Pic. 
+Grâce aux munitions carapaces, allons aider Mario à survivre face au Goomba et aux pluies de Pic-Pic. 
 
 Alors, quel sera notre score ?? 
 
