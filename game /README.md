@@ -1,6 +1,6 @@
 # Game
 ## Présentation du jeu
-Notre jeu consiste à mettre un personnage, nous avons pris Mario, face à des monstres tels que des Goomba. A l'aide de ses munitions en forme de carapaces, sa mission sera ainsi de vaincre ces montres. Un Goomba tué lui fera remporter 20 points. A certains moment du jeu, l'ennemi ne sera plus des Goomba mais une pluie de boules piquantes (Pic-pic), cette apparition va venir compliquer la situation de notre Mario. Au-dessus de chaque personnages, il y aura une barre de vie, ainsi nous pourrons regarder l'état du joueur comme ceux des ennemis. En bas de l'écran, une barre se remplira au fur et à mesure que le jeu avance: c'est pour nous prévenir quand est-ce qu'il y aura un changement entre une attaque de Goomba et une pluie de Pic-pic. 
+Notre jeu consiste à mettre un personnage, Mario, face à des monstres tels que des Goomba. A l'aide de ses munitions en forme de carapaces, sa mission sera de vaincre ces montres. Un Goomba tué lui fera remporter 20 points. A certains momens du jeu, les ennemis ne seront plus des Goomba, mais une pluie de boules piquantes (Pic-pic), cette apparition va venir compliquer la situation de notre Mario. Au-dessus de chaque personnages, il y aura une barre de vie, ainsi, nous pourrons regarder l'état du joueur, ainsi que ceux des ennemis. En bas de l'écran, une barre se remplit au fur et à mesure que le jeu avance: elle sert à pour nous prévenir quand arrivera la pluie de Pic-pic. 
 
 Les commandes que nous devrons utiliser sont :
 * ➡️ : avancer en direction des ennemis ou esciver les Pic-pic
@@ -9,11 +9,11 @@ Les commandes que nous devrons utiliser sont :
 
 <img width="1192" alt="Capture d’écran 2021-04-19 à 18 41 10" src="https://user-images.githubusercontent.com/77683990/115272962-43f3e100-a13f-11eb-8844-157f84460fe5.png">
 
-Nous avons donc l'écran de départ (Super Mario Play), pour pouvoir commencer le jeu, nous allons utiliser le ``MOUSEBUTTONDOWN`` (il suffit d'appuyer sur le bouton ``PLAY``avec la souris). Ceci permet ainsi de commencer le jeu. L'écran avec le titre disparaît et le personnage Mario va apparaître. 
+Sur cette image, nous voyons l'écran de départ du jeu, pour le mettre en marche, nous allons utiliser le ``MOUSEBUTTONDOWN`` (il suffit d'appuyer sur le bouton ``PLAY``avec la souris). Ceci permet ainsi de commencer le jeu. L'écran avec le titre disparaît et le personnage Mario va apparaître. 
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 39 54" src="https://user-images.githubusercontent.com/77683990/115272981-481ffe80-a13f-11eb-9eb4-4d87cf8178fa.png">
 
-Sur cette image, le jeu vient d'avoir été lancé. Le joueur, Mario (généré par la classe ``Player``), ainsi que ses adversaire, les Goomba (générés par la classe ``Monster``) viennent d'apparaître. Nous pouvons voir que la partie vient d'être lancée, car les barres de vie sont encore pleines (entièrement vertes), il n'y a encore eu aucune confrontation (aucune collision). Nous pouvons également le remarquer, car le score (inscrit en haut à gauche) est encore égal à 0. La barre en bas de l'écran, qui sert au déclanchement des pluie de Pic-pic (généré par la classe ``Comet``), est en train de se remplire, nous pouvons le remarquer, car elle devient de plus en plus rouge.
+Sur cette image, le jeu vient d'avoir été lancé. Le joueur, Mario (généré par la classe ``Player``), ainsi que ses adversaires, les Goomba (générés par la classe ``Monster``) viennent d'apparaître. Nous pouvons voir que la partie vient d'être lancée, car les barres de vie sont encore pleines (entièrement vertes), il n'y a encore eu aucune confrontation (aucune collision). Nous pouvons également le remarquer, car le score (inscrit en haut à gauche) est encore égal à 0. La barre en bas de l'écran, qui sert au déclanchement des pluie de Pic-pic (généré par la classe ``Comet``), est en train de se remplire, nous pouvons le remarquer, car elle devient de plus en plus rouge.
 
 <img width="822" alt="Capture d’écran 2021-04-19 à 21 19 56" src="https://user-images.githubusercontent.com/77742973/115346900-0d56ae80-a1b1-11eb-810b-0676f19f496b.png">
 
@@ -25,12 +25,12 @@ Le jeu continue avec cette image. Cette fois-ci Mario et les Goomba ont commenc�
 
 <img width="1440" alt="Capture d’écran 2021-04-19 à 18 43 30" src="https://user-images.githubusercontent.com/77683990/115273025-553ced80-a13f-11eb-9460-1008cb8f194b.png">
 
-Une fois la barre inférieur de l'écran remplie de rouge, les Goomba vont disparaitre pour un moment, afin de laisser place à une pluie de Pic-pic. C'est une étape différente qu'une attaque de Goomba. Il ne pourra pas se défendre avec ses attaques carapaces et donc, il faudra qu'il se déplace à droite ou à gauche. Les méthodes `` move_right`` pour bouger à droite et ``move_left`` pour s'orienter vers la gauche, vont avoir une meilleure utilisation dans cette étape. Pour cela, utilisez les touches ⬅️ et ➡️. Après avoir un reçu un Pic Pic, Mario perdera des points dans la barre de vie. C'est la même fonctionnalité que les collisions avec des Goomba. 
+Une fois la barre inférieur de l'écran remplie de rouge, les Goomba vont disparaitre pour un moment, afin de laisser place à une pluie de Pic-pic. C'est une étape différente qu'une attaque de Goomba. Il ne pourra pas se défendre avec ses attaques carapaces et donc, il faudra qu'il se déplace à droite ou à gauche. Les méthodes `` move_right`` pour bouger à droite et ``move_left`` pour s'orienter vers la gauche, vont avoir une meilleure utilisation dans cette étape. Pour cela, nous utiliserons les touches ⬅️ et ➡️. Après avoir fait collision un Pic Pic, Mario perdera des points dans la barre de vie. C'est la même fonctionnalité que les collisions avec des Goomba. 
 
 ## Règles du jeu
-Grâce aux munitions carapaces, allons aider Mario à survivre face au Goomba et aux pluies de Pic-Pic. 
+Grâce aux munitions carapaces, allons aider Mario à survivre face au Goomba et aux pluies de Pic-Pic !  
 
-Alors, quel sera notre score ?? 
+Alors, quel sera notre score ? 
 
 ## Fin du jeu
 Le jeu prend fin au moment où Mario n'a plus de vie.  
