@@ -298,7 +298,7 @@ class Comet(pygame.sprite.Sprite):
             #retirer la piece
             self.remove()
             
-            # si il n'y a plus de piece
+            # si il n'y a plus de comète
             if len(self.comet_event.all_comets) == 0:
                 print('evenement est fini')
                 self.comet_event.reset_percent()
@@ -312,8 +312,21 @@ class Comet(pygame.sprite.Sprite):
                 self.remove()
                 # subir degats
                 self.comet_event.game.player.damage(20)
-
-
+                
+# classe pièces
+class Pieces(pygame.sprite.Sprite):
+    def __init__(self, comet_event):
+        super().__init__()
+        self.image = pygame.image.load('image/piece.png')
+        self.image = pygame.transform.scale(self.image, (50, 50))
+        self.rect = self.image.get_rect()
+        self.velocity = random.randint(1, 3)
+        self.rect.x = random.randint(20, 800)
+        self.rect.y = -random.randint(0, 800)
+        self.piece_event = piece_event
+        
+    def fall(self):
+            
 # fenetre du jeu
 pygame.display.set_caption('supermario') 
 screen = pygame.display.set_mode((1080, 720))
