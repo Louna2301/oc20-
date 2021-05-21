@@ -304,7 +304,7 @@ class Comet(pygame.sprite.Sprite):
                 self.comet_event.reset_percent()
                 self.comet_event.fall_mode = False
             
-        # verifier si la piece touche le joueur
+        # verifier si la comete touche le joueur
         if self.comet_event.game.check_collision(
             self, self.comet_event.game.all_players
             ):
@@ -326,6 +326,26 @@ class Pieces(pygame.sprite.Sprite):
         self.piece_event = piece_event
         
     def fall(self):
+        self.rect.y += self.velocity
+        
+        # va vers la droite
+        if self.rect.x >= 1080:
+            #retirer la piece
+            self.remove()
+            
+            # si il n'y a plus de pieces
+            if len(self.piece_event.all_piece) == 0:
+                self.piece_event.reset_percent()
+                self.piece_event.fall_mode = False
+            
+        # verifier si la piece touche le joueur
+        if self.piece_event.game.check_collision(
+            self, self.piece_event.game.all_players
+            ):
+                print('joueur touché')
+                self.remove()
+                # subir degats
+                self.piece_event.game.player.damage(20)
             
 # fenetre du jeu
 pygame.display.set_caption('supermario') 
