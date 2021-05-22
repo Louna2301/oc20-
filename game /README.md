@@ -44,7 +44,7 @@ La base de ce jeu est en collaboration avec le groupe de Jean et Walid.
 ## Références
 L'idée de créer un mario vient de la vidéo: https://www.youtube.com/watch?v=lXwZAJkTr1k&t=313s
 
-La base de notre jeu est inspiré de la série de vidéos de  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
+La base de notre jeu est inspiré de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
 
 ## Sources images/son
 Mario : 
