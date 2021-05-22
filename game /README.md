@@ -38,6 +38,9 @@ Le jeu prend fin au moment où Mario n'a plus de vie.
 ## Diagramme de classes
 ![Untitled Diagram](https://user-images.githubusercontent.com/77683990/115990029-6c596080-a5c1-11eb-8524-d0de85f317b0.png)
 
+## Collaboration
+La base de ce jeu est en collaboration avec le groupe de Jean et Walid.
+
 ## Références
 https://www.youtube.com/watch?v=lXwZAJkTr1k&t=313s
 
