@@ -45,10 +45,15 @@ https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
 
 ## Sources images/son
 Mario : 
-piece :
-Goomba :
+
+piece : https://ar.pinterest.com/pin/790592909567963403/
+
+Goomba : https://mario.fandom.com/fr/wiki/Goomba
+
 carapace : https://mario.fandom.com/fr/wiki/Carapace_rouge
-comète :
-décor :
-bannière :
-boutton :
+
+comète : https://mario.fandom.com/fr/wiki/Pic-Pic
+
+décor : https://www.elegantwallpapers.com/tag/mario/
+
+bannière : https://fr.wikipedia.org/wiki/Super_Mario
