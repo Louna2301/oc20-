@@ -47,7 +47,7 @@ https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
 Mario : 
 piece :
 Goomba :
-carapace :
+carapace : https://mario.fandom.com/fr/wiki/Carapace_rouge
 comète :
 décor :
 bannière :
