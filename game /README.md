@@ -38,9 +38,25 @@ Le jeu prend fin au moment où Mario n'a plus de vie.
 ## Diagramme de classes
 ![Untitled Diagram](https://user-images.githubusercontent.com/77683990/115990029-6c596080-a5c1-11eb-8524-d0de85f317b0.png)
 
+## Collaboration
+La base de ce jeu est en collaboration avec le groupe de ``Jean et Walid`` .
+
 ## Références
-https://www.youtube.com/watch?v=lXwZAJkTr1k&t=313s
+L'idée de créer un mario vient de la vidéo ``5 idées de jeux à créer quand on débute de ``Hardcoders by Antho Welc`` https://www.youtube.com/watch?v=lXwZAJkTr1k&t=313s
 
-https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
+La base de notre jeu est inspiré de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
 
-## Sources images 
+## Sources images/son
+Mario : https://supermariorun.com/fr-ca/
+
+Piece : https://ar.pinterest.com/pin/790592909567963403/
+
+Goomba : https://mario.fandom.com/fr/wiki/Goomba
+
+Carapace : https://mario.fandom.com/fr/wiki/Carapace_rouge
+
+Comète : https://mario.fandom.com/fr/wiki/Pic-Pic
+
+Décor : https://www.elegantwallpapers.com/tag/mario/
+
+Bannière : https://fr.wikipedia.org/wiki/Super_Mario
