@@ -43,7 +43,7 @@ background = pygame.image.load('images2.0/background.png')
 running = True
 while running:
     for event in pygame.event.get():
+        # evenement est la fermeture de la fenetre
         if event.type == pygame.QUIT:
             running = False
-        
-pygame.quit()
+            pygame.quit()
