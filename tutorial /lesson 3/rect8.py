@@ -1,7 +1,7 @@
 from rect import *
 
-rect = Rect(100, 50, 50, 50)
-v = [2, 2]
+rect = Rect(20, 20, 20, 20)
+v = [5, 20]
 
 while running:
     for event in pygame.event.get():
