@@ -5,12 +5,15 @@ pygame.init()
 class Game:
     
     def __init__(self):
-        # charger palette
-        self.palet = Palet()
+        # charger palette de gauche
+        self.palet1 = Palet1()
+        self.pressed = {}
+        # charger palette de droite
+        self.palet2 = Palet2()
         self.pressed = {}
            
-# classe palette
-class Palet(pygame.sprite.Sprite):
+# classe palette de gauche
+class Palet1(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()
@@ -19,6 +22,24 @@ class Palet(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (20, 150))
         self.rect = self.image.get_rect()
         self.rect.x = 50
+        self.rect.y = 50
+        
+    def move_up(self):
+        self.rect.y -= self.velocity
+        
+    def move_down(self):
+        self.rect.y += self.velocity
+
+# classe palette de droite
+class Palet2(pygame.sprite.Sprite):
+    
+    def __init__(self):
+        super().__init__()
+        self.velocity = 5
+        self.image = pygame.image.load('images2.0/palet.png')
+        self.image = pygame.transform.scale(self.image, (20, 150))
+        self.rect = self.image.get_rect()
+        self.rect.x = 880
         self.rect.y = 50
         
     def move_up(self):
@@ -45,16 +66,23 @@ while running:
     # appliquer l'arriere plan du jeu
     screen.blit(background, (-5, 0))
     
-    # appliquer l'image de la palette
-    screen.blit(game.palet.image, game.palet.rect)
+    # appliquer l'image de la palette de gauche
+    screen.blit(game.palet1.image, game.palet1.rect)
     
-    # verifier si le joueur veut aller en haut ou en bas
-    if game.pressed.get(pygame.K_i) and game.palet.rect.y > 0:
-        game.palet.move_up()
-    elif game.pressed.get(pygame.K_m) and game.palet.rect.y < 570:
-        game.palet.move_down()
+    # verifier si le joueur veut aller en haut ou en bas avec la palette de gauche
+    if game.pressed.get(pygame.K_e) and game.palet1.rect.y > 0:
+        game.palet1.move_up()
+    elif game.pressed.get(pygame.K_x) and game.palet1.rect.y < 570:
+        game.palet1.move_down()
         
-    print(game.palet.rect.y)
+    # appliquer l'image de la palette de droite
+    screen.blit(game.palet2.image, game.palet2.rect)
+    
+    # verifier si le joueur veut aller en haut ou en bas avec la palette de droite
+    if game.pressed.get(pygame.K_i) and game.palet2.rect.y > 0:
+        game.palet2.move_up()
+    elif game.pressed.get(pygame.K_m) and game.palet2.rect.y < 570:
+        game.palet2.move_down()
     
     # mettre a jour l'ecran
     pygame.display.flip()
@@ -70,6 +98,4 @@ while running:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
         elif event.type == pygame.KEYUP:
-            game.pressed[event.key] = False
-            
-                      
+            game.pressed[event.key] = False               
