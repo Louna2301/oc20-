@@ -59,7 +59,7 @@ class Ball(pygame.sprite.Sprite):
         self.image = pygame.image.load('images2.0/ball.png')
         self.image = pygame.transform.scale(self.image, (80, 50))
         self.rect = self.image.get_rect()
-        self.rect.x = 100
+        self.rect.x = 50
         self.rect.y = 100
        
 # fenetre du jeu
