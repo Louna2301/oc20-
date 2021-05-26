@@ -5,12 +5,14 @@ pygame.init()
 class Game:
     
     def __init__(self):
-        # charger palette de gauche
+        # charger la palette de gauche
         self.palet1 = Palet1()
         self.pressed = {}
-        # charger palette de droite
+        # charger la palette de droite
         self.palet2 = Palet2()
         self.pressed = {}
+         # charger la balle
+        self.ball = Ball()
            
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
@@ -48,6 +50,18 @@ class Palet2(pygame.sprite.Sprite):
     def move_down(self):
         self.rect.y += self.velocity
         
+# classe balle
+class Ball(pygame.sprite.Sprite):
+    
+    def __init__(self):
+        super().__init__()
+        self.velocity = 5
+        self.image = pygame.image.load('images2.0/ball.png')
+        self.image = pygame.transform.scale(self.image, (80, 50))
+        self.rect = self.image.get_rect()
+        self.rect.x = 100
+        self.rect.y = 100
+       
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
 screen = pygame.display.set_mode((950, 720))
@@ -83,6 +97,9 @@ while running:
         game.palet2.move_up()
     elif game.pressed.get(pygame.K_m) and game.palet2.rect.y < 570:
         game.palet2.move_down()
+        
+     # appliquer l'image de la balle
+    screen.blit(game.ball.image, game.ball.rect)
     
     # mettre a jour l'ecran
     pygame.display.flip()
