@@ -7,6 +7,7 @@ class Game:
     def __init__(self):
         # charger palette
         self.palet = Palet()
+        self.pressed = {}
            
 # classe palette
 class Palet(pygame.sprite.Sprite):
@@ -47,6 +48,14 @@ while running:
     # appliquer l'image de la palette
     screen.blit(game.palet.image, game.palet.rect)
     
+    # verifier si le joueur veut aller en haut ou en bas
+    if game.pressed.get(pygame.K_i) and game.palet.rect.y > 0:
+        game.palet.move_up()
+    elif game.pressed.get(pygame.K_m) and game.palet.rect.y < 570:
+        game.palet.move_down()
+        
+    print(game.palet.rect.y)
+    
     # mettre a jour l'ecran
     pygame.display.flip()
     
@@ -59,9 +68,8 @@ while running:
         
         # si un joueur lache une touche du clavier
         elif event.type == pygame.KEYDOWN:
-            # quelle touche à été utilisée
-            if event.key == pygame.K_i:
-                game.palet.move_up()     
-            elif event.key == pygame.K_m:
-                game.palet.move_down()
+            game.pressed[event.key] = True
+        elif event.type == pygame.KEYUP:
+            game.pressed[event.key] = False
+            
                       
