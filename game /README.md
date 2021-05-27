@@ -45,7 +45,7 @@ La base de notre jeu est inspiré de la série de vidéos ``Comment créer un je
 ## Sources images/son
 Palettes :
 
-Balle :
+Balle : https://emojiterra.com/fr/rond-rouge/
 
 Typo :
 
