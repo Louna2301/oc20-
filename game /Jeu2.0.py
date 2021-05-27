@@ -1,10 +1,13 @@
 import pygame
+import math
 pygame.init()
 
 # classe game
 class Game:
     
     def __init__(self):
+        # definir si notre jeu a commencé
+        self.is_playing = False
         # charger la palette de gauche
         self.palet1 = Palet1()
         self.pressed = {}
@@ -13,6 +16,31 @@ class Game:
         self.pressed = {}
          # charger la balle
         self.ball = Ball()
+        
+    def start(self):
+        self.is_playing = True
+        
+    def update(self, screen):
+        # appliquer l'image de la palette de gauche
+        screen.blit(self.palet1.image, self.palet1.rect)
+    
+        # verifier si le joueur veut aller en haut ou en bas avec la palette de gauche
+        if self.pressed.get(pygame.K_e) and self.palet1.rect.y > 0:
+            self.palet1.move_up()
+        elif self.pressed.get(pygame.K_x) and self.palet1.rect.y < 570:
+            self.palet1.move_down()
+        
+        # appliquer l'image de la palette de droite
+        screen.blit(self.palet2.image, self.palet2.rect)
+    
+        # verifier si le joueur veut aller en haut ou en bas avec la palette de droite
+        if self.pressed.get(pygame.K_i) and self.palet2.rect.y > 0:
+            self.palet2.move_up()
+        elif self.pressed.get(pygame.K_m) and self.palet2.rect.y < 570:
+            self.palet2.move_down()
+        
+        # appliquer l'image de la balle
+        screen.blit(self.ball.image, self.ball.rect)            
            
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
@@ -69,6 +97,13 @@ screen = pygame.display.set_mode((950, 720))
 # arrière plan du jeu
 background = pygame.image.load('images2.0/background.png')
 
+#importer notre bouton pour lancer la partie
+play_button = pygame.image.load('images2.0/play.jpg')
+play_button = pygame.transform.scale(play_button, (400, 150))
+play_button_rect = play_button.get_rect()
+play_button_rect.x = math.ceil(screen.get_width() / 3.33)
+play_button_rect.y = math.ceil(screen.get_height() / 2)
+
 # charger le jeu
 game = Game()
 
@@ -80,27 +115,15 @@ while running:
     # appliquer l'arriere plan du jeu
     screen.blit(background, (-5, 0))
     
-    # appliquer l'image de la palette de gauche
-    screen.blit(game.palet1.image, game.palet1.rect)
-    
-    # verifier si le joueur veut aller en haut ou en bas avec la palette de gauche
-    if game.pressed.get(pygame.K_e) and game.palet1.rect.y > 0:
-        game.palet1.move_up()
-    elif game.pressed.get(pygame.K_x) and game.palet1.rect.y < 570:
-        game.palet1.move_down()
-        
-    # appliquer l'image de la palette de droite
-    screen.blit(game.palet2.image, game.palet2.rect)
-    
-    # verifier si le joueur veut aller en haut ou en bas avec la palette de droite
-    if game.pressed.get(pygame.K_i) and game.palet2.rect.y > 0:
-        game.palet2.move_up()
-    elif game.pressed.get(pygame.K_m) and game.palet2.rect.y < 570:
-        game.palet2.move_down()
-        
-     # appliquer l'image de la balle
-    screen.blit(game.ball.image, game.ball.rect)
-    
+    # verifier si notre jeu à commencé ou non
+    if game.is_playing:
+        # declencher les instructions de la partie
+        game.update(screen)
+        # verifier si notre jeu n'a pas commencé
+    else:
+        # ajouter mon ecran de bienvenue
+        screen.blit(play_button, (play_button_rect))
+   
     # mettre a jour l'ecran
     pygame.display.flip()
     
@@ -115,4 +138,10 @@ while running:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
         elif event.type == pygame.KEYUP:
-            game.pressed[event.key] = False               
+            game.pressed[event.key] = False
+            
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # verifier pour savoir si on appuie sur la souris
+            if play_button_rect.collidepoint(event.pos):
+                # mettre le jeu en mode 'lancé'
+                game.start()
