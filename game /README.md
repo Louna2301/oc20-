@@ -1,4 +1,5 @@
 # Game
+# Pong
 ## Présentation du jeu
 Notre jeu consiste à mettre un personnage, Mario, face à des monstres tels que des Goomba. A l'aide de ses munitions en forme de carapaces, sa mission sera de vaincre ces montres. Un Goomba tué lui fera remporter 20 points. A certains momens du jeu, les ennemis ne seront plus des Goomba, mais une pluie de boules piquantes (Pic-pic), cette apparition va venir compliquer la situation de notre Mario. Au-dessus de chaque personnages, il y aura une barre de vie, ainsi, nous pourrons regarder l'état du joueur, ainsi que ceux des ennemis. En bas de l'écran, une barre se remplit au fur et à mesure que le jeu avance: elle sert à pour nous prévenir quand arrivera la pluie de Pic-pic. 
 
@@ -38,25 +39,11 @@ Le jeu prend fin au moment où Mario n'a plus de vie.
 ## Diagramme de classes
 ![Untitled Diagram](https://user-images.githubusercontent.com/77683990/115990029-6c596080-a5c1-11eb-8524-d0de85f317b0.png)
 
-## Collaboration
-La base de ce jeu est en collaboration avec le groupe de ``Jean et Walid`` .
-
 ## Références
-L'idée de créer un mario vient de la vidéo ``5 idées de jeux à créer quand on débute de ``Hardcoders by Antho Welc`` https://www.youtube.com/watch?v=lXwZAJkTr1k&t=313s
-
 La base de notre jeu est inspiré de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
 
 ## Sources images/son
-Mario : https://supermariorun.com/fr-ca/
-
-Piece : https://ar.pinterest.com/pin/790592909567963403/
-
-Goomba : https://mario.fandom.com/fr/wiki/Goomba
-
-Carapace : https://mario.fandom.com/fr/wiki/Carapace_rouge
-
-Comète : https://mario.fandom.com/fr/wiki/Pic-Pic
-
-Décor : https://www.elegantwallpapers.com/tag/mario/
-
-Bannière : https://fr.wikipedia.org/wiki/Super_Mario
+Palettes :
+Balle :
+Typo :
+Background :
