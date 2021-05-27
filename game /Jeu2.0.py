@@ -103,12 +103,13 @@ class Ball(pygame.sprite.Sprite):
     
     def __init__(self):
         super().__init__()
-        self.velocity = 5
+        self.velocity_x = 5
+        self.velocity_y = 5
         self.image = pygame.image.load('images2.0/ball02.png')
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
         self.rect.x = 100
-        self.rect.y = 100
+        self.rect.y = 100 
        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
@@ -155,7 +156,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-        
+            
         # si un joueur lache une touche du clavier
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
@@ -167,3 +168,11 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # mettre le jeu en mode 'lancé'
                 game.start()
+                
+    game.ball.rect.x += game.ball.velocity_x
+    game.ball.rect.y += game.ball.velocity_y
+    
+    if game.ball.rect.y <= 0 or game.ball.rect.y >= 750:
+        game.ball.velocity_y *= -1
+    if game.ball.rect.x <= 0 or game.ball.rect.x >= 1150:
+        game.ball.velocity_x *= -1
