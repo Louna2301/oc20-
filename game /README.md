@@ -45,8 +45,8 @@ La base de notre jeu est inspiré de la série de vidéos ``Comment créer un je
 ## Sources images/son
 Palettes :
 
-Balle : https://emojiterra.com/fr/rond-rouge/
+Balle : https://emojiterra.com/fr/rond-rouge/, consulté le 27.05.2021
 
 Typo :
 
-Background :
+Background : https://yorkdojo.github.io/worksheets/scratch/pong/, consulté le 26.05.2012
