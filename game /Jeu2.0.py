@@ -14,7 +14,7 @@ class Game:
         # charger la palette de droite
         self.palet2 = Palet2()
         self.pressed = {}
-         # charger la balle
+        # charger la balle
         self.ball = Ball()
         self.score = 0
         
