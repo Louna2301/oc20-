@@ -123,7 +123,7 @@ background = pygame.transform.scale(background, (1200, 800))
 play_button = pygame.image.load('images2.0/play.jpg')
 play_button = pygame.transform.scale(play_button, (400, 150))
 play_button_rect = play_button.get_rect()
-play_button_rect.x = math.ceil(screen.get_width() / 3.33)
+play_button_rect.x = math.ceil(screen.get_width() / 3.33 + 50)
 play_button_rect.y = math.ceil(screen.get_height() / 2)
 
 # charger le jeu
