@@ -1,4 +1,5 @@
 import pygame
+import math
 pygame.init()
 
 # classe game
@@ -15,6 +16,9 @@ class Game:
         self.pressed = {}
          # charger la balle
         self.ball = Ball()
+        
+    def start(self):
+        self.is_playing = True
         
     def update(self, screen):
         # appliquer l'image de la palette de gauche
@@ -93,6 +97,13 @@ screen = pygame.display.set_mode((950, 720))
 # arrière plan du jeu
 background = pygame.image.load('images2.0/background.png')
 
+#importer notre bouton pour lancer la partie
+play_button = pygame.image.load('images2.0/play.jpg')
+play_button = pygame.transform.scale(play_button, (400, 150))
+play_button_rect = play_button.get_rect()
+play_button_rect.x = math.ceil(screen.get_width() / 3.33)
+play_button_rect.y = math.ceil(screen.get_height() / 2)
+
 # charger le jeu
 game = Game()
 
@@ -108,6 +119,10 @@ while running:
     if game.is_playing:
         # declencher les instructions de la partie
         game.update(screen)
+        # verifier si notre jeu n'a pas commencé
+    else:
+        # ajouter mon ecran de bienvenue
+        screen.blit(play_button, (play_button_rect))
    
     # mettre a jour l'ecran
     pygame.display.flip()
@@ -123,4 +138,10 @@ while running:
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
         elif event.type == pygame.KEYUP:
-            game.pressed[event.key] = False   
+            game.pressed[event.key] = False
+            
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # verifier pour savoir si on appuie sur la souris
+            if play_button_rect.collidepoint(event.pos):
+                # mettre le jeu en mode 'lancé'
+                game.start()
