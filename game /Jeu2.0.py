@@ -27,7 +27,7 @@ class Game:
         # verifier si le joueur veut aller en haut ou en bas avec la palette de gauche
         if self.pressed.get(pygame.K_e) and self.palet1.rect.y > 0:
             self.palet1.move_up()
-        elif self.pressed.get(pygame.K_x) and self.palet1.rect.y < 570:
+        elif self.pressed.get(pygame.K_x) and self.palet1.rect.y < 650:
             self.palet1.move_down()
         
         # appliquer l'image de la palette de droite
@@ -36,7 +36,7 @@ class Game:
         # verifier si le joueur veut aller en haut ou en bas avec la palette de droite
         if self.pressed.get(pygame.K_i) and self.palet2.rect.y > 0:
             self.palet2.move_up()
-        elif self.pressed.get(pygame.K_m) and self.palet2.rect.y < 570:
+        elif self.pressed.get(pygame.K_m) and self.palet2.rect.y < 650:
             self.palet2.move_down()
         
         # appliquer l'image de la balle
@@ -52,7 +52,7 @@ class Palet1(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (20, 150))
         self.rect = self.image.get_rect()
         self.rect.x = 50
-        self.rect.y = 50
+        self.rect.y = 100
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -69,8 +69,8 @@ class Palet2(pygame.sprite.Sprite):
         self.image = pygame.image.load('images2.0/palet.png')
         self.image = pygame.transform.scale(self.image, (20, 150))
         self.rect = self.image.get_rect()
-        self.rect.x = 880
-        self.rect.y = 50
+        self.rect.x = 1135
+        self.rect.y = 100
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -84,18 +84,20 @@ class Ball(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.velocity = 5
-        self.image = pygame.image.load('images2.0/ball.png')
-        self.image = pygame.transform.scale(self.image, (80, 50))
+        self.image = pygame.image.load('images2.0/ball02.png')
+        self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
-        self.rect.x = 50
+        self.rect.x = 100
         self.rect.y = 100
        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
-screen = pygame.display.set_mode((950, 720))
+screen = pygame.display.set_mode((1200, 900))
 
 # arrière plan du jeu
 background = pygame.image.load('images2.0/background.png')
+background = pygame.transform.scale(background, (1200, 800))
+
 
 #importer notre bouton pour lancer la partie
 play_button = pygame.image.load('images2.0/play.jpg')
@@ -113,7 +115,7 @@ running = True
 while running:
     
     # appliquer l'arriere plan du jeu
-    screen.blit(background, (-5, 0))
+    screen.blit(background, (0, 0))
     
     # verifier si notre jeu à commencé ou non
     if game.is_playing:
