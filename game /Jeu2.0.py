@@ -16,11 +16,31 @@ class Game:
         self.pressed = {}
          # charger la balle
         self.ball = Ball()
+        self.score = 0
         
     def start(self):
         self.is_playing = True
+    
+    def add_score(self, points):
+        self.score += points
+    
+    def add_score2(self, points):
+        self.score += points
+        
+    def game_over(self):
+        self.is_playing = False
+        self.score = 0
         
     def update(self, screen):
+        # afficher le score sur l'ecran
+        font = pygame.font.SysFont('monospace', 100)
+        score_text = font.render(f'{self.score}', 1, (255, 255, 255))
+        screen.blit(score_text, (500, 350))
+        
+        font = pygame.font.SysFont('monospace', 100)
+        score_text = font.render(f'{self.score}', 1, (255, 255, 255))
+        screen.blit(score_text, (635, 350))
+                    
         # appliquer l'image de la palette de gauche
         screen.blit(self.palet1.image, self.palet1.rect)
     
