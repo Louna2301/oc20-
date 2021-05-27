@@ -44,6 +44,9 @@ La base de notre jeu est inspiré de la série de vidéos ``Comment créer un je
 
 ## Sources images/son
 Palettes :
+
 Balle :
+
 Typo :
+
 Background :
