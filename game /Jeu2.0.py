@@ -109,7 +109,10 @@ class Ball(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
         self.rect.x = 100
-        self.rect.y = 100 
+        self.rect.y = 100
+        self.angle = 30
+        self.DeltaX = SINUS(30) * velocity
+        self.DeltaY = COSINUS(30) * velocity
        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
@@ -174,5 +177,5 @@ while running:
     
     if game.ball.rect.y <= 0 or game.ball.rect.y >= 750:
         game.ball.velocity_y *= -1
-    if game.ball.rect.x <= 0 or game.ball.rect.x >= 1150:
+    if game.ball.rect.x <= 0 and game.ball.rect.y == game.palet1.rect.x:
         game.ball.velocity_x *= -1
