@@ -175,7 +175,7 @@ while running:
     
     if game.ball.rect.y <= 0 or game.ball.rect.y >= 750:
         game.ball.velocity_y *= -1
-    if game.ball.rect.x <= 0 and game.ball.rect.y == game.palet1.rect.y:
+    if game.ball.rect.x >= 0 and game.ball.rect.x == game.palet1.rect.y:
         game.ball.velocity_x *= -1
-    if game.ball.rect.x <= 1100 and game.ball.rect.y == game.palet2.rect.y:
+    if game.ball.rect.x >= 1100 and game.ball.rect.x == game.palet2.rect.y:
         game.ball.velocity_x *= -1
