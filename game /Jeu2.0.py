@@ -13,6 +13,15 @@ class Game:
         self.pressed = {}
          # charger la balle
         self.ball = Ball()
+        
+    def add_score(self, points):
+        self.score += points
+        
+    def update(self, screen):
+        # afficher le score sur l'ecran
+        font = pygame.font.SysFont('monospace', 20)
+        score_text = font.render(f'Score : {self.score}', 1, (0, 0, 0))
+        screen.blit(score_text, (20, 20))
            
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
