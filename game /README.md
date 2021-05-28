@@ -3,13 +3,14 @@
 ## Présentation du jeu
 
 Les commandes que nous devrons utiliser sont :
+
 Pour le joueur de droite:
 * ``i``: monter 
 * ``m`` : descendre
-* 
-Pour le joueur de droite:
-* ``e``: monter pour le joueur de gauche
-* ``x``: descendre pour le joueur de gauche
+
+Pour le joueur de gauche:
+* ``e``: monter 
+* ``x``: descendre 
 
 <img width="1192" alt="Capture d’écran 2021-04-19 à 18 41 10" src="https://user-images.githubusercontent.com/77683990/115272962-43f3e100-a13f-11eb-8844-157f84460fe5.png">
 
