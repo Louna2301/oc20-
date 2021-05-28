@@ -26,8 +26,11 @@ Le jeu se termine lorsqu'une personne arrive à atteindre les 10 points.
 
 ## Les classes
 Dans ce jeu, il n'y a pas beaucoup de classe.
+
 Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter tous les élémemts du jeu.
-Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu
+
+Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
+
 Et enfin, les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2`` et enfin, la classe ``Ball`` . Qui sont les éléments constituant le jeu vidéo.
 
 ## Le diagramme de classe
