@@ -1,11 +1,13 @@
 # Game
 # Pong
 ## Présentation du jeu
-Notre jeu consiste à mettre un personnage, Mario, face à des monstres tels que des Goomba. A l'aide de ses munitions en forme de carapaces, sa mission sera de vaincre ces montres. Un Goomba tué lui fera remporter 20 points. A certains momens du jeu, les ennemis ne seront plus des Goomba, mais une pluie de boules piquantes (Pic-pic), cette apparition va venir compliquer la situation de notre Mario. Au-dessus de chaque personnages, il y aura une barre de vie, ainsi, nous pourrons regarder l'état du joueur, ainsi que ceux des ennemis. En bas de l'écran, une barre se remplit au fur et à mesure que le jeu avance: elle sert à pour nous prévenir quand arrivera la pluie de Pic-pic. 
 
 Les commandes que nous devrons utiliser sont :
-* ``i``: monter pour le joueur de droite
-* ``m`` : descendre pour le joueur de droite
+Pour le joueur de droite:
+* ``i``: monter 
+* ``m`` : descendre
+* 
+Pour le joueur de droite:
 * ``e``: monter pour le joueur de gauche
 * ``x``: descendre pour le joueur de gauche
 
