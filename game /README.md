@@ -1,7 +1,7 @@
 # Game
 # Pong
 ## Présentation du jeu
-Le ``Pong``est un des premier jeu vidéo apparu dans les années 70. Il est aujourd'hui concidéreé comme le commencement de l'industrie des jeux vidéos. Nous avons choisi de faire ce jeu vidéos, car malgré sa simplicité, il regroupe toute les notions importante dans la création d'un jeu vidéo. En plus de cela, c'est un moyen de redonner une nouvelle vie et de nous réapproprier cet "ancètre des jeux vidéos".
+Le ``Pong``est un des premier jeu vidéo apparu dans les années 70. Il est aujourd'hui concidéreé comme le commencement de l'industrie des jeux vidéos. Nous avons choisi de faire ce jeu vidéo, car malgré sa simplicité, il regroupe toute les notions importante dans la création d'un jeu vidéo. En plus de cela, c'est un moyen de redonner une nouvelle vie et de nous réapproprier cet "ancètre des jeux vidéo".
 Equipé d'une raquette et d'uen balle, les joueurs s'affrontent dans le but de marquer le plus de points. Le point est gagné, lorsque la balle passe dans le but de l'autre, car celui-ci n'a pas réussi à rattrapper la balle avec sa raquette. Le jeu initial est conçu pour que le joueur ait le choix de jouer soit seul (contre un ordinateur), soit contre un réel adversaire. Dans le cas de notre jeu, les deux adversaires s'affronte sur un même ordinateur avec chacun sont côté du clavier.
 
 Les commandes que nous devrons utiliser sont :
@@ -17,7 +17,8 @@ Pour le joueur de gauche:
 
 ## Règles du jeu
 Les règles du jeu sont simples:
-Faite rebondire la balle sur votre raquette, feinter votre adversaire et soyez le premier à atteindre les 10 points sur le compteur de score.
+
+Faites rebondire la balle sur votre raquette, feintez votre adversaire et soyez le premier à atteindre les 10 points sur le compteur de score.
 
 Alors, qui aura le plus de points ??
 
