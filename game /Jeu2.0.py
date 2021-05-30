@@ -1,5 +1,6 @@
 import pygame
 import math
+import collide
 pygame.init()
 
 # classe game
@@ -60,7 +61,7 @@ class Game:
             self.palet2.move_down()
         
         # appliquer l'image de la balle
-        screen.blit(self.ball.image, self.ball.rect)            
+        screen.blit(self.ball.image, self.ball.rect)
            
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
@@ -110,7 +111,6 @@ class Ball(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 100
-        self.angle = 30
        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
@@ -138,6 +138,9 @@ play_button_rect.y = math.ceil(screen.get_height() / 2)
 game = Game()
 
 running = True
+
+# Score
+score = 0
 
 # boucle tant que la condition est vrai
 while running:
@@ -180,10 +183,22 @@ while running:
     game.ball.rect.x += game.ball.velocity_x
     game.ball.rect.y += game.ball.velocity_y
     
-    if game.ball.rect.y <= 0 or game.ball.rect.y >= 750:
-        game.ball.velocity_y *= -1
-    if game.ball.rect.x >= 0 and game.ball.rect.x == game.palet1.rect.y:
-        game.ball.velocity_x *= -1
-    if game.ball.rect.x >= 1100 and game.ball.rect.x == game.palet2.rect.y:
-        game.ball.velocity_x *= -1
+    # Vérification si la balle entre en collision avec le haut, bas ou droite de l'écran
+    # Si c'est le cas, nous inversons sa direction
+    if  game.ball.rect.y <= 0:
+        game.ball.velocity_y = - game.ball.velocity_y
+
+    if  game.ball.rect.y >= 800 - 50:
+        game.ball.velocity_y= -game.ball.velocity_y
+         
+    if game.ball.rect.x + 50 >= 1200:
+        game.ball.velocity_x = -game.ball.velocity_x
+
+    # Nous testons s'il y a collision entre la balle et la palette
+    if collide.rectRect(game.ball.rect.x, game.ball.rect.y, 50, 50, 
+                        game.palet1.rect.x, game.palet1.rect.y, 20, 150):
+        game.ball.velocity_x= -game.ball.velocity_x
+        score = score + 1
+
+    
     
