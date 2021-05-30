@@ -14,6 +14,11 @@ Pour le joueur de gauche:
 * ``e``: monter 
 * ``x``: descendre 
 
+### Captures d'écran
+
+<img width="1201" alt="Capture d’écran 2021-05-30 à 16 50 39" src="https://user-images.githubusercontent.com/77683990/120108863-49454200-c167-11eb-90da-8a1d29c0a6b4.png">
+
+Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessiné la bannière ``PONG``, ainsi que le boutton ``PLAY`` sur lequel nous devons cliquer avec la souris, pour démarrer le jeu.
 
 ## Règles du jeu
 Les règles du jeu sont simples:
