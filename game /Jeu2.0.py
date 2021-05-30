@@ -179,3 +179,4 @@ while running:
         game.ball.velocity_x *= -1
     if game.ball.rect.x >= 1100 and game.ball.rect.x == game.palet2.rect.y:
         game.ball.velocity_x *= -1
+    
