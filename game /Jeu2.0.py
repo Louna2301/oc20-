@@ -110,6 +110,8 @@ class Ball(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 100
+        
+print(Ball)
        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
@@ -194,6 +196,7 @@ while running:
         game.ball.velocity_x = -game.ball.velocity_x
 
     # Nous testons s'il y a collision entre la balle et la palette de gauche
-    if colliderectRect(game.ball.rect.x, game.ball.rect.y, 50, 50, game.palet1.rect.x, game.palet1.rect.y, 20, 150) == False
-    game.ball.velocity_x= -game.ball.velocity_x
-    score = score + 1
+    if colliderectRect(game.ball.rect.x, game.ball.rect.y, 50, 50,
+                       game.palet1.rect.x, game.palet1.rect.y, 20, 150) == False:
+        game.ball.velocity_x= -game.ball.velocity_x
+        score = score + 1
