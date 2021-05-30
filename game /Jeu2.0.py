@@ -1,6 +1,5 @@
 import pygame
 import math
-import collide
 pygame.init()
 
 # classe game
@@ -199,6 +198,3 @@ while running:
                         game.palet1.rect.x, game.palet1.rect.y, 20, 150):
         game.ball.velocity_x= -game.ball.velocity_x
         score = score + 1
-
-    
-    
