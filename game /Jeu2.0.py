@@ -120,6 +120,12 @@ screen = pygame.display.set_mode((1200, 900))
 background = pygame.image.load('images2.0/background.png')
 background = pygame.transform.scale(background, (1200, 800))
 
+# importer notre banière
+banner = pygame.image.load('images2.0/Pong.jpg')
+banner = pygame.transform.scale(banner, (500, 200))
+banner_rect = banner.get_rect()
+banner_rect.x = math.ceil(screen.get_width() / 4 + 50)
+banner_rect.y = math.ceil(screen.get_height() / 4)
 
 #importer notre bouton pour lancer la partie
 play_button = pygame.image.load('images2.0/play.jpg')
@@ -147,6 +153,7 @@ while running:
     else:
         # ajouter mon ecran de bienvenue
         screen.blit(play_button, (play_button_rect))
+        screen.blit(banner, (banner_rect))
    
     # mettre a jour l'ecran
     pygame.display.flip()
