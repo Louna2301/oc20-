@@ -136,10 +136,6 @@ play_button_rect.y = math.ceil(screen.get_height() / 2)
 # charger le jeu
 game = Game()
 
-
-colliderectRect(game.ball.rect.x, game.ball.rect.y, 50, 50, 
-                        game.palet1.rect.x, game.palet1.rect.y, 20, 150) = False
-
 running = True
 
 # Score
@@ -198,7 +194,6 @@ while running:
         game.ball.velocity_x = -game.ball.velocity_x
 
     # Nous testons s'il y a collision entre la balle et la palette de gauche
-    if colliderectRect(game.ball.rect.x, game.ball.rect.y, 50, 50, 
-                        game.palet1.rect.x, game.palet1.rect.y, 20, 150):
-        game.ball.velocity_x= -game.ball.velocity_x
-        score = score + 1
+    if colliderectRect(game.ball.rect.x, game.ball.rect.y, 50, 50, game.palet1.rect.x, game.palet1.rect.y, 20, 150) == False
+    game.ball.velocity_x= -game.ball.velocity_x
+    score = score + 1
