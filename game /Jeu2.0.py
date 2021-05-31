@@ -13,9 +13,13 @@ class Game:
         # charger la palette de gauche
         self.palet1 = Palet1()
         self.pressed = {}
+        self.right = right
+        self.left = left
         # charger la palette de droite
         self.palet2 = Palet2()
         self.pressed = {}
+        self.right = right
+        self.left = left
         # charger la balle
         self.ball = Ball()
         self.score = 0
@@ -63,19 +67,6 @@ class Game:
         
         # appliquer l'image de la balle
         screen.blit(self.ball.image, self.ball.rect)
-        
-    def check_ball_hits_wall(self):
-            if self.ball.rect.x > 1200 or self.ball.rect.x < 0:
-                sys.exit(1)
-
-            if self.ball.rect.y > 900 - 50 or self.ball.rect.y < 0:
-                self.ball.angle = -self.ball.angle
-
-    def check_ball_hits_paddle(self):
-            for palet in self.palet:
-                if self.ball.colliderect(palet2):
-                    self.ball.velocity = -self.ball.velocity
-                    self.ball.angle = random.randint(-10, 10)
             
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
@@ -88,6 +79,8 @@ class Palet1(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 50
         self.rect.y = 100
+        self.xoffset = right.rect[0] - left.rect[0]
+        self.yoffset = right.rect[1] - left.rect[1]
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -106,6 +99,8 @@ class Palet2(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 1135
         self.rect.y = 100
+        self.xoffset = right.rect[0] - left.rect[0]
+        self.yoffset = right.rect[1] - left.rect[1]
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -151,7 +146,7 @@ play_button = pygame.image.load('images2.0/play.jpg')
 play_button = pygame.transform.scale(play_button, (400, 150))
 play_button_rect = play_button.get_rect()
 play_button_rect.x = math.ceil(screen.get_width() / 3.33 + 50)
-play_button_rect.y = math.ceil(screen.get_height() / 2)
+play_button_rect.y = math.ceil(screen.get_height() / 2 + 50)
 
 # charger le jeu
 game = Game()
@@ -202,6 +197,17 @@ while running:
                 # mettre le jeu en mode 'lancé'
                 game.start()
                 
-        game.check_ball_hits_wall()
-        game.check_ball_hits_paddle()
-        game.ball.move_ball()
+    game.ball.move_ball()
+    
+    # Vérifier si la balle entre en collision avec les 4 murs
+    if game.ball.rect.x>=1150:
+        game.ball.velocity_x = -game.ball.velocity_x
+    if game.ball.rect.x<=0:
+        game.ball.velocity_x = -game.ball.velocity_x
+    if game.ball.rect.y>800:
+        game.ball.velocity_y = -game.ball.velocity_y
+    if game.ball.rect.y<0:
+        game.ball.velocity_y = -game.ball.velocity_y
+        
+    if pygame.sprite.collide_mask(Ball, Palet1) or pygame.sprite.collide_mask(Ball, Palet2):
+        ball.bounce()
