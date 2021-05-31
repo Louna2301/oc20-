@@ -1,5 +1,7 @@
 import pygame
 import math
+import random
+import sys
 pygame.init()
 
 # classe game
@@ -25,7 +27,7 @@ class Game:
         self.score += points
     
     def add_score2(self, points):
-        self.score += points
+        self.score2 += points
         
     def game_over(self):
         self.is_playing = False
@@ -61,7 +63,20 @@ class Game:
         
         # appliquer l'image de la balle
         screen.blit(self.ball.image, self.ball.rect)
-           
+        
+    def check_ball_hits_wall(self):
+            if self.ball.rect.x > 1200 or self.ball.rect.x < 0:
+                sys.exit(1)
+
+            if self.ball.rect.y > 900 - 50 or self.ball.rect.y < 0:
+                self.ball.angle = -self.ball.angle
+
+    def check_ball_hits_paddle(self):
+            for palet in self.palet:
+                if self.ball.colliderect(palet2):
+                    self.ball.velocity = -self.ball.velocity
+                    self.ball.angle = random.randint(-10, 10)
+            
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
     
@@ -110,12 +125,15 @@ class Ball(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 100
         self.rect.y = 100
+        self.angle = 0
         
-print(Ball)
+    def move_ball(self):
+        self.rect.x += self.velocity_x
+        self.rect.y += self.velocity_y
        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
-screen = pygame.display.set_mode((1200, 900))
+screen = pygame.display.set_mode((1200, 800))
 
 # arrière plan du jeu
 background = pygame.image.load('images2.0/background.png')
@@ -142,6 +160,9 @@ running = True
 
 # Score
 score = 0
+
+# Score2
+score2 = 0
 
 # boucle tant que la condition est vrai
 while running:
@@ -181,22 +202,6 @@ while running:
                 # mettre le jeu en mode 'lancé'
                 game.start()
                 
-    game.ball.rect.x += game.ball.velocity_x
-    game.ball.rect.y += game.ball.velocity_y
-    
-    # Vérification si la balle entre en collision avec le haut, bas ou droite de l'écran
-    # Si c'est le cas, nous inversons sa direction
-    if  game.ball.rect.y <= 0:
-        game.ball.velocity_y = - game.ball.velocity_y
-
-    if  game.ball.rect.y >= 800 - 50:
-        game.ball.velocity_y= -game.ball.velocity_y
-         
-    if game.ball.rect.x + 50 >= 1200:
-        game.ball.velocity_x = -game.ball.velocity_x
-
-    # Nous testons s'il y a collision entre la balle et la palette de gauche
-    if colliderectRect(game.ball.rect.x, game.ball.rect.y, 50, 50,
-                       game.palet1.rect.x, game.palet1.rect.y, 20, 150) == False:
-        game.ball.velocity_x= -game.ball.velocity_x
-        score = score + 1
+        game.check_ball_hits_wall()
+        game.check_ball_hits_paddle()
+        game.ball.move_ball()
