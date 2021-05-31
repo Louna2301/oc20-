@@ -7,7 +7,7 @@ pygame.init()
 # classe game
 class Game:
     
-    def __init__(self):
+    def __init__(self, pos):
         # definir si notre jeu a commencé
         self.is_playing = False
         # charger la palette de gauche
@@ -117,7 +117,7 @@ class Palet2(pygame.sprite.Sprite):
 # classe balle
 class Ball(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, pos):
         super().__init__()
         self.velocity_x = 5
         self.velocity_y = 5
