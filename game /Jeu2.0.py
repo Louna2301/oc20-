@@ -75,6 +75,7 @@ class Palet1(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 50
         self.rect.y = 100
+        self.mask = pygame.mask.from_surface(self.image)
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -97,6 +98,7 @@ class Palet2(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 1135
         self.rect.y = 100
+        self.mask = pygame.mask.from_surface(self.image)
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -213,5 +215,7 @@ while running:
     if game.ball.rect.y<0:
         game.ball.velocity_y = -game.ball.velocity_y
         
+    
+    # Vérifier si la balle entre en collision avec les palettes    
     if pygame.sprite.collide_mask(Ball, Palet1) or pygame.sprite.collide_mask(Ball, Palet2):
         ball.bounce()
