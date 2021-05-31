@@ -13,13 +13,9 @@ class Game:
         # charger la palette de gauche
         self.palet1 = Palet1()
         self.pressed = {}
-        self.right = right
-        self.left = left
         # charger la palette de droite
         self.palet2 = Palet2()
         self.pressed = {}
-        self.right = right
-        self.left = left
         # charger la balle
         self.ball = Ball()
         self.score = 0
@@ -79,8 +75,6 @@ class Palet1(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 50
         self.rect.y = 100
-        self.xoffset = right.rect[0] - left.rect[0]
-        self.yoffset = right.rect[1] - left.rect[1]
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -99,8 +93,6 @@ class Palet2(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = 1135
         self.rect.y = 100
-        self.xoffset = right.rect[0] - left.rect[0]
-        self.yoffset = right.rect[1] - left.rect[1]
         
     def move_up(self):
         self.rect.y -= self.velocity
