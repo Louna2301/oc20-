@@ -67,7 +67,7 @@ class Game:
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, pos):
         super().__init__()
         self.velocity = 5
         self.image = pygame.image.load('images2.0/palet.png')
@@ -76,6 +76,8 @@ class Palet1(pygame.sprite.Sprite):
         self.rect.x = 50
         self.rect.y = 100
         self.mask = pygame.mask.from_surface(self.image)
+        self.rect.x = pos[0]
+        self.rect.y = pos[1]
         
     def move_up(self):
         self.rect.y -= self.velocity
@@ -90,7 +92,7 @@ class Palet1(pygame.sprite.Sprite):
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, pos):
         super().__init__()
         self.velocity = 5
         self.image = pygame.image.load('images2.0/palet.png')
@@ -99,6 +101,8 @@ class Palet2(pygame.sprite.Sprite):
         self.rect.x = 1135
         self.rect.y = 100
         self.mask = pygame.mask.from_surface(self.image)
+        self.rect.x = pos[0]
+        self.rect.y = pos[1]
         
     def move_up(self):
         self.rect.y -= self.velocity
