@@ -85,9 +85,6 @@ class Palet1(pygame.sprite.Sprite):
     def move_down(self):
         self.rect.y += self.velocity
         
-    def bounce(self):
-         self.velocity[0] = -self.velocity[0]
-         self.velocity[1] = randint(-8,8)
 
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
@@ -109,15 +106,11 @@ class Palet2(pygame.sprite.Sprite):
         
     def move_down(self):
         self.rect.y += self.velocity
-    
-    def bounce(self):
-         self.velocity[0] = -self.velocity[0]
-         self.velocity[1] = randint(-8,8)
         
 # classe balle
 class Ball(pygame.sprite.Sprite):
     
-    def __init__(self, pos):
+    def __init__(self):
         super().__init__()
         self.velocity_x = 5
         self.velocity_y = 5
