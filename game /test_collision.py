@@ -126,7 +126,7 @@ class Ball(pygame.sprite.Sprite):
         
     def move_ball(self):
         # si la balle n'est pas en collision avec une palette
-        if not self.game.check_collision(self, self.game.palet1):
+        if not self.game.check_collision(self, [self.game.palet1, self.game.ball]):
             self.rect.x += self.velocity_x
             self.rect.y += self.velocity_y
        
