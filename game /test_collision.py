@@ -68,7 +68,8 @@ class Game:
         screen.blit(self.ball.image, self.ball.rect)
         
     def check_collision(self, sprite, group):
-        return pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
+        pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
+        return game.ball.bounce()
             
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
@@ -117,6 +118,7 @@ class Ball(pygame.sprite.Sprite):
         self.game = game
         self.velocity_x = 5
         self.velocity_y = 5
+        self.velocity = 5
         self.image = pygame.image.load('images2.0/ball02.png')
         self.image = pygame.transform.scale(self.image, (50, 50))
         self.rect = self.image.get_rect()
@@ -126,13 +128,12 @@ class Ball(pygame.sprite.Sprite):
         
     def move_ball(self):
         # si la balle n'est pas en collision avec une palette
-        if not self.game.check_collision(self, [self, self.game.palet1]):
+        if not self.game.check_collision(self, [self.game.ball, self.game.palet2]):
             self.rect.x += self.velocity_x
             self.rect.y += self.velocity_y
        
     def bounce(self):
-         self.velocity[0] = -self.velocity[0]
-         self.velocity[1] = randint(-8,8)
+         self.velocity = -self.velocity
         
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
@@ -204,15 +205,11 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # mettre le jeu en mode 'lancé'
                 game.start()
-                
-    game.ball.move_ball()
     
     # Vérifier si la balle entre en collision avec les 4 murs
-    if game.ball.rect.x>=1150:
-        game.ball.velocity_x = -game.ball.velocity_x
-    if game.ball.rect.x<=0:
-        game.ball.velocity_x = -game.ball.velocity_x
     if game.ball.rect.y>800:
         game.ball.velocity_y = -game.ball.velocity_y
     if game.ball.rect.y<0:
         game.ball.velocity_y = -game.ball.velocity_y
+        
+    game.ball.move_ball()
