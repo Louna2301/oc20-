@@ -21,16 +21,17 @@ class Game:
         # charger la balle
         self.ball = Ball(self)
         self.all_ball = pygame.sprite.Group()
-        self.score = 0
+        self.score = 0 
+        self.score2 = 0
         
     def start(self):
         self.is_playing = True
     
     def add_score(self, points):
-        self.score += points
+        self.score += 1
     
     def add_score2(self, points):
-        self.score2 += points
+        self.score2 += 1
         
     def game_over(self):
         self.is_playing = False
@@ -43,8 +44,8 @@ class Game:
         screen.blit(score_text, (500, 350))
         
         font = pygame.font.SysFont('monospace', 100)
-        score_text = font.render(f'{self.score}', 1, (255, 255, 255))
-        screen.blit(score_text, (635, 350))
+        score2_text = font.render(f'{self.score2}', 1, (255, 255, 255))
+        screen.blit(score2_text, (635, 350))
                     
         # appliquer l'image de la palette de gauche
         screen.blit(self.palet1.image, self.palet1.rect)
@@ -125,7 +126,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect.x = 100
         self.rect.y = 100
         self.angle = 0
-        
+
     def move_ball(self):
         # si la balle n'est pas en collision avec une palette
         if not self.game.check_collision(self, [self.game.ball, self.game.palet2]):
@@ -211,5 +212,11 @@ while running:
         game.ball.velocity_y = -game.ball.velocity_y
     if game.ball.rect.y<0:
         game.ball.velocity_y = -game.ball.velocity_y
+        
+    # Calculer le score
+    if game.ball.rect.x<0:
+        score += 1
+    if game.ball.rect.x>1200:
+        score2 += 1
         
     game.ball.move_ball()
