@@ -28,10 +28,10 @@ class Game:
         self.is_playing = True
     
     def add_score(self, points):
-        self.score += 1
+        self.score += points
     
     def add_score2(self, points):
-        self.score2 += 1
+        self.score2 += points
         
     def game_over(self):
         self.is_playing = False
@@ -90,7 +90,6 @@ class Palet1(pygame.sprite.Sprite):
         
     def move_down(self):
         self.rect.y += self.velocity
-        
 
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
@@ -212,11 +211,11 @@ while running:
         game.ball.velocity_y = -game.ball.velocity_y
     if game.ball.rect.y<0:
         game.ball.velocity_y = -game.ball.velocity_y
-        
+    
     # Calculer le score
-    if game.ball.rect.x<0:
-        score += 1
-    if game.ball.rect.x>1200:
-        score2 += 1
+    if game.ball.rect.x <= 0:
+        game.add_score(1)
+    if game.ball.rect.x >= 1200:
+        game.add_score2(1)
         
     game.ball.move_ball()
