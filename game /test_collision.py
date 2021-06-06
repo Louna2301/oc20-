@@ -41,11 +41,11 @@ class Game:
         # afficher le score sur l'ecran
         font = pygame.font.SysFont('monospace', 100)
         score_text = font.render(f'{self.score}', 1, (255, 255, 255))
-        screen.blit(score_text, (500, 350))
+        screen.blit(score_text, (450, 350))
         
         font = pygame.font.SysFont('monospace', 100)
         score2_text = font.render(f'{self.score2}', 1, (255, 255, 255))
-        screen.blit(score2_text, (635, 350))
+        screen.blit(score2_text, (685, 350))
                     
         # appliquer l'image de la palette de gauche
         screen.blit(self.palet1.image, self.palet1.rect)
@@ -206,7 +206,7 @@ while running:
                 # mettre le jeu en mode 'lancé'
                 game.start()
     
-    # Vérifier si la balle entre en collision avec les 4 murs
+    # Vérifier si la balle entre en collision avec les 2 murs (supérieur et inférieur de l'écran)
     if game.ball.rect.y>800:
         game.ball.velocity_y = -game.ball.velocity_y
     if game.ball.rect.y<0:
