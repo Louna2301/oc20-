@@ -215,7 +215,11 @@ while running:
     # Calculer le score
     if game.ball.rect.x <= 0:
         game.add_score(1)
+        game.ball.rect.x = 100
+        game.ball.rect.y = 100
     if game.ball.rect.x >= 1200:
         game.add_score2(1)
+        game.ball.rect.x = 100
+        game.ball.rect.y = 100
         
     game.ball.move_ball()
