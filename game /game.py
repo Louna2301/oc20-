@@ -73,12 +73,32 @@ class Game:
         screen.blit(self.ball.image, self.ball.rect)
         
     def run():
-        
-        
-def move():
-    self.palet1.move()
-    self.palet2.move()
-    self.ball.move()
+        # boucle tant que la condition est vrai
+        while running:
+            # appliquer l'arriere plan du jeu
+            screen.blit(background, (0, 0))
+            # verifier si notre jeu à commencé ou non
+            if game.is_playing:
+                # declencher les instructions de la partie
+                game.update(screen)
+                # verifier si notre jeu n'a pas commencé
+            else:
+                # ajouter mon ecran de bienvenue
+                screen.blit(play_button, (play_button_rect))
+                screen.blit(banner, (banner_rect))
+            # mettre a jour l'ecran
+            pygame.display.flip()
+            # si le joueur ferme la fenetre
+            for event in pygame.event.get():
+                # evenement est la fermeture de la fenetre
+                if event.type == pygame.QUIT:
+                    running = False
+                    pygame.quit()
+            
+    def move():
+        self.palet1.move()
+        self.palet2.move()
+        self.ball.move()
     
     def draw():
         self.palet1.draw()
@@ -219,32 +239,6 @@ score = 0
 
 # Score2
 score2 = 0
-
-# boucle tant que la condition est vrai
-while running:
-    
-    # appliquer l'arriere plan du jeu
-    screen.blit(background, (0, 0))
-    
-    # verifier si notre jeu à commencé ou non
-    if game.is_playing:
-        # declencher les instructions de la partie
-        game.update(screen)
-        # verifier si notre jeu n'a pas commencé
-    else:
-        # ajouter mon ecran de bienvenue
-        screen.blit(play_button, (play_button_rect))
-        screen.blit(banner, (banner_rect))
-   
-    # mettre a jour l'ecran
-    pygame.display.flip()
-    
-    # si le joueur ferme la fenetre
-    for event in pygame.event.get():
-        # evenement est la fermeture de la fenetre
-        if event.type == pygame.QUIT:
-            running = False
-            pygame.quit()
             
         # si un joueur lache une touche du clavier
         elif event.type == pygame.KEYDOWN:
@@ -257,12 +251,6 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # mettre le jeu en mode 'lancé'
                 game.start()
-    
-    # Vérifier si la balle entre en collision avec les 2 murs (supérieur et inférieur de l'écran)
-    if game.ball.rect.y>800:
-        game.ball.velocity_y = -game.ball.velocity_y
-    if game.ball.rect.y<0:
-        game.ball.velocity_y = -game.ball.velocity_y
     
     # Calculer le score
     if game.ball.rect.x <= 0:
