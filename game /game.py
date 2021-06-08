@@ -72,9 +72,13 @@ class Game:
         # appliquer l'image de la balle
         screen.blit(self.ball.image, self.ball.rect)
         
-    def check_collision(self, sprite, group):
-        pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
-        return game.ball.bounce()
+    def run():
+        
+        
+def move():
+    self.palet1.move()
+    self.palet2.move()
+    self.ball.move()
     
     def draw():
         self.palet1.draw()
@@ -83,11 +87,6 @@ class Game:
         self.label.draw()
         self.label1.draw()
         self.label2.draw()
-        
-    def move():
-        self.palet1.move()
-        self.palet2.move()
-        self.ball.move()
         
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
