@@ -75,7 +75,20 @@ class Game:
     def check_collision(self, sprite, group):
         pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
         return game.ball.bounce()
-            
+    
+    def draw():
+        self.palet1.draw()
+        self.palet2.draw()
+        self.ball.draw()
+        self.label.draw()
+        self.label1.draw()
+        self.label2.draw()
+        
+    def move():
+        self.palet1.move()
+        self.palet2.move()
+        self.ball.move()
+        
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
     
