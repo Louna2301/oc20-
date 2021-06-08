@@ -137,6 +137,16 @@ class Palet2(pygame.sprite.Sprite):
     def move_down(self):
         self.rect.y += self.velocity
         
+    def do_event(self, event):
+    # la palette sait comment bouger
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_i:
+                self.speed = -10
+            elif event.key == pygame.K_m:
+                self.speed = 10
+        elif event.type == pygame.KEYUP:
+            self.speed = 0
+        
 # classe balle
 class Ball(pygame.sprite.Sprite):
     
@@ -154,14 +164,30 @@ class Ball(pygame.sprite.Sprite):
         self.angle = 0
 
     def move_ball(self):
-        # si la balle n'est pas en collision avec une palette
-        if not self.game.check_collision(self, [self.game.ball, self.game.palet2]):
-            self.rect.x += self.velocity_x
-            self.rect.y += self.velocity_y
+        self.rect.move_ip(self.velocity)
+        # collision en bas
+        if self.rect.bottom > self.game.rect.bottom:
+            self.velocity[1] = -5
+        # collision à droite
+        if self.rect.right > self.game.rect.right:
+            self.game.score1 += 1
+            self.game.label1.render(str(self.game.score1))
+            self.init()
+        # collision en haut
+        if self.rect.top < self.game.rect.top:
+            self.velocity[1] = 5
+        # collision à gauche
+        if self.rect.left < self.game.rect.left:
+            self.game.score2 += 1
+            self.game.label2.render(str(self.game.score2))
+            self.init()
+        # collision palette gauche
+        if self.rect.colliderect(self.game.palet1.rect):
+            self.velocity[0] = 5
+        # collision palette droite
+        if self.rect.colliderect(self.game.palet2.rect):
+            self.velocity[0] = -5
        
-    def bounce(self):
-         self.velocity = -self.velocity
-        
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
 screen = pygame.display.set_mode((1200, 800))
