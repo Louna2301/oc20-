@@ -23,6 +23,10 @@ class Game:
         self.all_ball = pygame.sprite.Group()
         self.score = 0 
         self.score2 = 0
+        # charger le texte
+        self.label = Text('pong', (10, 10))
+        self.label1 = Text('0', (450, 350))
+        self.label2 = Text('0', (685, 350))
         
     def start(self):
         self.is_playing = True
@@ -90,6 +94,16 @@ class Palet1(pygame.sprite.Sprite):
         
     def move_down(self):
         self.rect.y += self.velocity
+        
+    def do_event(self, event):
+    # la palette sait comment bouger
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_e:
+                self.speed = -10
+            elif event.key == pygame.K_x:
+                self.speed = 10
+        elif event.type == pygame.KEYUP:
+            self.speed = 0
 
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
