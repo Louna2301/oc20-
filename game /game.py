@@ -23,6 +23,21 @@ class Game:
         self.all_ball = pygame.sprite.Group()
         self.score = 0 
         self.score2 = 0
+        # charger le texte
+        self.label = Text('pong', (10, 10))
+        self.label1 = Text('0', (450, 350))
+        self.label2 = Text('0', (685, 350))
+        # éléments se dessinent
+        self.palet1.draw()
+        self.palet2.draw()
+        self.ball.draw()
+        self.label.draw()
+        self.label1.draw()
+        self.label2.draw()
+        # éléments qui bougent
+        self.palet1.move()
+        self.palet2.move()
+        self.ball.move()
         
     def start(self):
         self.is_playing = True
@@ -81,11 +96,19 @@ class Palet1(pygame.sprite.Sprite):
         self.rect.y = 100
         self.mask = pygame.mask.from_surface(self.image)
         
-    def move_up(self):
+    def move(self):
         self.rect.y -= self.velocity
-        
-    def move_down(self):
         self.rect.y += self.velocity
+        
+    def do_event(self, event):
+        # la palette sait comment bouger
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_e:
+                self.speed = -10
+        elif event.key == pygame.K_x:
+            self.speed = 10
+            elif event.type == pygame.KEYUP:
+                self.speed = 0
 
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
@@ -100,11 +123,19 @@ class Palet2(pygame.sprite.Sprite):
         self.rect.y = 100
         self.mask = pygame.mask.from_surface(self.image)
         
-    def move_up(self):
+    def move(self):
         self.rect.y -= self.velocity
-        
-    def move_down(self):
         self.rect.y += self.velocity
+    
+    def do_event(self, event):
+        # la palette sait comment bouger
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_i:
+                self.speed = -10
+        elif event.key == pygame.K_m:
+            self.speed = 10
+            elif event.type == pygame.KEYUP:
+                self.speed = 0
         
 # classe balle
 class Ball(pygame.sprite.Sprite):
@@ -146,6 +177,21 @@ class Ball(pygame.sprite.Sprite):
         # collision palette droite
         if self.rect.colliderect(self.game.palet2.rect):
             self.velocity[0] = -5
+
+# classe texte
+class Text:
+    def __init__(self, text, pos=(0, 0)):
+        self.font = pygame.font.Font(None, 100)
+        self.color = (255, 255, 255)
+        self.text = text
+        self.pos = pos
+        self.render(text)
+        
+    def render(self, text):
+        self.image = self.font.render(text, 1, self.color)
+        
+    def draw(self):
+        screen.blit(self.image, self.pos)
                 
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
