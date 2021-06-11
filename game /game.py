@@ -67,10 +67,6 @@ class Game:
         
         # appliquer l'image de la balle
         screen.blit(self.ball.image, self.ball.rect)
-        
-    def check_collision(self, sprite, group):
-        pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
-        return game.ball.bounce()
             
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
@@ -126,15 +122,31 @@ class Ball(pygame.sprite.Sprite):
         self.rect.y = 400
         self.angle = 0
 
-    def move_ball(self):
-        # si la balle n'est pas en collision avec une palette
-        if not self.game.check_collision(self, [self.game.ball, self.game.palet2]):
-            self.rect.x += self.velocity_x
-            self.rect.y += self.velocity_y
-       
-    def bounce(self):
-         self.velocity = -self.velocity
-        
+    def move(self):
+        self.rect.move_ip(self.velocity)
+        # collision en bas
+        if self.rect.bottom > self.game.rect.bottom:
+            self.velocity[1] = -5
+        # collision à droite
+        if self.rect.right > self.game.rect.right:
+            self.game.score1 += 1
+            self.game.label1.render(str(self.game.score1))
+            self.init()
+        # collision en haut
+        if self.rect.top < self.game.rect.top:
+            self.velocity[1] = 5
+        # collision à gauche
+        if self.rect.left < self.game.rect.left:
+            self.game.score2 += 1
+            self.game.label2.render(str(self.game.score2))
+            self.init()
+        # collision palette gauche
+        if self.rect.colliderect(self.game.palet1.rect):
+            self.velocity[0] = 5
+        # collision palette droite
+        if self.rect.colliderect(self.game.palet2.rect):
+            self.velocity[0] = -5
+                
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
 screen = pygame.display.set_mode((1200, 800))
@@ -205,24 +217,5 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # mettre le jeu en mode 'lancé'
                 game.start()
-    
-    # Vérifier si la balle entre en collision avec les 2 murs (supérieur et inférieur de l'écran)
-    if game.ball.rect.y>800:
-        game.ball.velocity_y = -game.ball.velocity_y
-    if game.ball.rect.y<0:
-        game.ball.velocity_y = -game.ball.velocity_y
-    
-    # Calculer le score
-    if game.ball.rect.x <= 0:
-        game.add_score2(1)
-        # remettre la balle au centre
-        game.ball.rect.x = 600
-        game.ball.rect.y = 400
-    # Calculer le score
-    if game.ball.rect.x >= 1200:
-        game.add_score(1)
-        # remttre la balle au centre
-        game.ball.rect.x = 600
-        game.ball.rect.y = 400
         
-    game.ball.move_ball()
+    game.ball.move()
