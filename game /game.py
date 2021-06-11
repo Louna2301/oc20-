@@ -82,11 +82,47 @@ class Game:
         
         # appliquer l'image de la balle
         screen.blit(self.ball.image, self.ball.rect)
+        
+    def run():
+        # boucle tant que la condition est vrai
+        while running:
+            # appliquer l'arriere plan du jeu
+            screen.blit(background, (0, 0))
+            # verifier si notre jeu à commencé ou non
+            if game.is_playing:
+                # declencher les instructions de la partie
+                game.update(screen)
+                # verifier si notre jeu n'a pas commencé
+            else:
+                # ajouter mon ecran de bienvenue
+                screen.blit(play_button, (play_button_rect))
+                screen.blit(banner, (banner_rect))
+                # mettre a jour l'ecran
+                pygame.display.flip()
+                
+            # si le joueur ferme la fenetre
+            for event in pygame.event.get():
+                # evenement est la fermeture de la fenetre
+                if event.type == pygame.QUIT:
+                    running = False
+                    pygame.quit()
+            # si un joueur lache une touche du clavier
+                elif event.type == pygame.KEYDOWN:
+                    game.pressed[event.key] = True
+                elif event.type == pygame.KEYUP:
+                    game.pressed[event.key] = False
+            
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    # verifier pour savoir si on appuie sur la souris
+                    if play_button_rect.collidepoint(event.pos):
+                        # mettre le jeu en mode 'lancé'
+                            game.start()
+        
             
 # classe palette de gauche
 class Palet1(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, pos=(0, 0)):
         super().__init__()
         self.velocity = 5
         self.image = pygame.image.load('images2.0/palet.png')
@@ -95,6 +131,7 @@ class Palet1(pygame.sprite.Sprite):
         self.rect.x = 50
         self.rect.y = 100
         self.mask = pygame.mask.from_surface(self.image)
+        self.pos = pos
         
     def move(self):
         self.rect.y -= self.velocity
@@ -105,9 +142,9 @@ class Palet1(pygame.sprite.Sprite):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_e:
                 self.speed = -10
-        elif event.key == pygame.K_x:
-            self.speed = 10
-            elif event.type == pygame.KEYUP:
+            elif event.key == pygame.K_x:
+                self.speed = 10
+        elif event.type == pygame.KEYUP:
                 self.speed = 0
     
     def draw(self):
@@ -116,7 +153,7 @@ class Palet1(pygame.sprite.Sprite):
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
     
-    def __init__(self):
+    def __init__(self, pos=(0, 0)):
         super().__init__()
         self.velocity = 5
         self.image = pygame.image.load('images2.0/palet.png')
@@ -125,6 +162,7 @@ class Palet2(pygame.sprite.Sprite):
         self.rect.x = 1135
         self.rect.y = 100
         self.mask = pygame.mask.from_surface(self.image)
+        self.pos = pos
         
     def move(self):
         self.rect.y -= self.velocity
@@ -135,10 +173,10 @@ class Palet2(pygame.sprite.Sprite):
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_i:
                 self.speed = -10
-        elif event.key == pygame.K_m:
-            self.speed = 10
-            elif event.type == pygame.KEYUP:
-                self.speed = 0
+            elif event.key == pygame.K_m:
+                self.speed = 10
+        elif event.type == pygame.KEYUP:
+            self.speed = 0
     
     def draw(self):
         screen.blit(self.image, self.pos)
@@ -146,7 +184,7 @@ class Palet2(pygame.sprite.Sprite):
 # classe balle
 class Ball(pygame.sprite.Sprite):
     
-    def __init__(self, game):
+    def __init__(self, game, pos=(0, 0)):
         super().__init__()
         self.game = game
         self.velocity_x = 5
@@ -158,6 +196,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect.x = 600
         self.rect.y = 400
         self.angle = 0
+        self.pos = pos
 
     def move(self):
         self.rect.move_ip(self.velocity_x, self.velocity_y)
@@ -234,43 +273,4 @@ score = 0
 
 # Score2
 score2 = 0
-
-# boucle tant que la condition est vrai
-while running:
     
-    # appliquer l'arriere plan du jeu
-    screen.blit(background, (0, 0))
-    
-    # verifier si notre jeu à commencé ou non
-    if game.is_playing:
-        # declencher les instructions de la partie
-        game.update(screen)
-        # verifier si notre jeu n'a pas commencé
-    else:
-        # ajouter mon ecran de bienvenue
-        screen.blit(play_button, (play_button_rect))
-        screen.blit(banner, (banner_rect))
-   
-    # mettre a jour l'ecran
-    pygame.display.flip()
-    
-    # si le joueur ferme la fenetre
-    for event in pygame.event.get():
-        # evenement est la fermeture de la fenetre
-        if event.type == pygame.QUIT:
-            running = False
-            pygame.quit()
-            
-        # si un joueur lache une touche du clavier
-        elif event.type == pygame.KEYDOWN:
-            game.pressed[event.key] = True
-        elif event.type == pygame.KEYUP:
-            game.pressed[event.key] = False
-            
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            # verifier pour savoir si on appuie sur la souris
-            if play_button_rect.collidepoint(event.pos):
-                # mettre le jeu en mode 'lancé'
-                game.start()
-        
-    game.ball.move()
