@@ -109,6 +109,9 @@ class Palet1(pygame.sprite.Sprite):
             self.speed = 10
             elif event.type == pygame.KEYUP:
                 self.speed = 0
+    
+    def draw(self):
+        screen.blit(self.image, self.pos)
 
 # classe palette de droite
 class Palet2(pygame.sprite.Sprite):
@@ -136,6 +139,9 @@ class Palet2(pygame.sprite.Sprite):
             self.speed = 10
             elif event.type == pygame.KEYUP:
                 self.speed = 0
+    
+    def draw(self):
+        screen.blit(self.image, self.pos)
         
 # classe balle
 class Ball(pygame.sprite.Sprite):
@@ -177,6 +183,9 @@ class Ball(pygame.sprite.Sprite):
         # collision palette droite
         if self.rect.colliderect(self.game.palet2.rect):
             self.velocity[0] = -5
+            
+    def draw(self):
+        screen.blit(self.image, self.pos)
 
 # classe texte
 class Text:
