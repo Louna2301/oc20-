@@ -23,10 +23,6 @@ class Game:
         self.all_ball = pygame.sprite.Group()
         self.score = 0 
         self.score2 = 0
-        # charger le texte
-        self.label = Text('pong', (10, 10))
-        self.label1 = Text('0', (450, 350))
-        self.label2 = Text('0', (685, 350))
         
     def start(self):
         self.is_playing = True
@@ -240,17 +236,17 @@ score = 0
 # Score2
 score2 = 0
             
-        # si un joueur lache une touche du clavier
-        elif event.type == pygame.KEYDOWN:
-            game.pressed[event.key] = True
-        elif event.type == pygame.KEYUP:
-            game.pressed[event.key] = False
+# si un joueur lache une touche du clavier
+elif event.type == pygame.KEYDOWN:
+    game.pressed[event.key] = True
+elif event.type == pygame.KEYUP:
+    game.pressed[event.key] = False
             
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            # verifier pour savoir si on appuie sur la souris
-            if play_button_rect.collidepoint(event.pos):
-                # mettre le jeu en mode 'lancé'
-                game.start()
+elif event.type == pygame.MOUSEBUTTONDOWN:
+    # verifier pour savoir si on appuie sur la souris
+    if play_button_rect.collidepoint(event.pos):
+        # mettre le jeu en mode 'lancé'
+        game.start()
     
     # Calculer le score
     if game.ball.rect.x <= 0:
