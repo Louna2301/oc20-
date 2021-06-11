@@ -123,7 +123,7 @@ class Ball(pygame.sprite.Sprite):
         self.angle = 0
 
     def move(self):
-        self.rect.move_ip(self.velocity)
+        self.rect.move_ip(self.velocity_x, self.velocity_y)
         # collision en bas
         if self.rect.bottom > self.game.rect.bottom:
             self.velocity[1] = -5
