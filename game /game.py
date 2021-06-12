@@ -200,6 +200,8 @@ class Ball(pygame.sprite.Sprite):
         self.rect.y = 400
         self.rect.bottom = 50
         self.rect.top = 50
+        self.rect.right = 50
+        self.rect.left =50
         self.angle = 0
         self.pos = pos
 
@@ -209,25 +211,25 @@ class Ball(pygame.sprite.Sprite):
         if self.rect.bottom > self.game.ball.rect.bottom:
             self.velocity[1] = -5
         # collision à droite
-        if self.rect.right > self.game.ball.rect.x:
+        if self.rect.right > self.game.ball.rect.right:
             self.game.score += 1
             self.game.label1.render(str(self.game.score))
             self.game.ball.rect.x = 600
             self.game.ball.rect.y = 400
         # collision en haut
-        if self.rect.top < self.game.rect.top:
+        if self.rect.top < self.game.ball.rect.top:
             self.velocity[1] = 5
         # collision à gauche
-        if self.rect.left < self.game.rect.left:
+        if self.rect.left < self.game.ball.rect.left:
             self.game.score2 += 1
             self.game.label2.render(str(self.game.score2))
             self.init()
         # collision palette gauche
         if self.rect.colliderect(self.game.palet1.rect):
-            self.velocity[0] = 5
+            self.velocity = 5
         # collision palette droite
         if self.rect.colliderect(self.game.palet2.rect):
-            self.velocity[0] = -5
+            self.velocity = -5
             
     def draw(self):
         screen.blit(self.image, self.pos)
