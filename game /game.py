@@ -275,4 +275,3 @@ score = 0
 
 # Score2
 score2 = 0
-    
