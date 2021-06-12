@@ -281,3 +281,7 @@ while running:
             if play_button_rect.collidepoint(event.pos):
                 # mettre le jeu en mode 'lancé'
                 game.start()
+                
+    game.ball.move()
+    game.palet1.move()
+    game.palet2.move()
