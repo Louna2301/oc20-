@@ -38,8 +38,6 @@ class Game:
         self.palet1.move()
         self.palet2.move()
         self.ball.move()
-        self.rect = 800
-        self.rect = 0
         
     def start(self):
         self.is_playing = True
@@ -107,7 +105,10 @@ class Game:
                 # evenement est la fermeture de la fenetre
                 if event.type == pygame.QUIT:
                     running = False
+                elif score or score2 == 10:
+                    running = False
                     pygame.quit()
+                    
             # si un joueur lache une touche du clavier
                 elif event.type == pygame.KEYDOWN:
                     game.pressed[event.key] = True
