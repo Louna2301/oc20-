@@ -38,6 +38,8 @@ class Game:
         self.palet1.move()
         self.palet2.move()
         self.ball.move()
+        self.rect = 800
+        self.rect = 0
         
     def start(self):
         self.is_playing = True
