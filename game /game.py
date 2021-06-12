@@ -202,16 +202,17 @@ class Ball(pygame.sprite.Sprite):
         self.rect.top = 50
         self.angle = 0
         self.pos = pos
+        self.init = pos
 
     def move(self):
         self.rect.move_ip(self.velocity_x, self.velocity_y)
         # collision en bas
-        if self.rect.bottom > self.game.rect.bottom:
+        if self.rect.bottom > self.game.ball.rect.bottom:
             self.velocity[1] = -5
         # collision à droite
-        if self.rect.right > self.game.rect.right:
-            self.game.score1 += 1
-            self.game.label1.render(str(self.game.score1))
+        if self.rect.right > self.game.ball.rect.x:
+            self.game.score += 1
+            self.game.label1.render(str(self.game.score))
             self.init()
         # collision en haut
         if self.rect.top < self.game.rect.top:
