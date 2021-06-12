@@ -67,59 +67,21 @@ class Game:
     
         # verifier si le joueur veut aller en haut ou en bas avec la palette de gauche
         if self.pressed.get(pygame.K_e) and self.palet1.rect.y > 0:
-            self.palet1.move_up()
+            self.palet1.move()
         elif self.pressed.get(pygame.K_x) and self.palet1.rect.y < 650:
-            self.palet1.move_down()
+            self.palet1.move()
         
         # appliquer l'image de la palette de droite
         screen.blit(self.palet2.image, self.palet2.rect)
     
         # verifier si le joueur veut aller en haut ou en bas avec la palette de droite
         if self.pressed.get(pygame.K_i) and self.palet2.rect.y > 0:
-            self.palet2.move_up()
+            self.palet2.move()
         elif self.pressed.get(pygame.K_m) and self.palet2.rect.y < 650:
-            self.palet2.move_down()
+            self.palet2.move()
         
         # appliquer l'image de la balle
         screen.blit(self.ball.image, self.ball.rect)
-        
-    def run():
-        # boucle tant que la condition est vrai
-        while running:
-            # appliquer l'arriere plan du jeu
-            screen.blit(background, (0, 0))
-            # verifier si notre jeu à commencé ou non
-            if game.is_playing:
-                # declencher les instructions de la partie
-                game.update(screen)
-                # verifier si notre jeu n'a pas commencé
-            else:
-                # ajouter mon ecran de bienvenue
-                screen.blit(play_button, (play_button_rect))
-                screen.blit(banner, (banner_rect))
-                # mettre a jour l'ecran
-                pygame.display.flip()
-                
-            # si le joueur ferme la fenetre
-            for event in pygame.event.get():
-                # evenement est la fermeture de la fenetre
-                if event.type == pygame.QUIT:
-                    running = False
-                elif score or score2 == 10:
-                    running = False
-                    pygame.quit()
-                    
-            # si un joueur lache une touche du clavier
-                elif event.type == pygame.KEYDOWN:
-                    game.pressed[event.key] = True
-                elif event.type == pygame.KEYUP:
-                    game.pressed[event.key] = False
-            
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    # verifier pour savoir si on appuie sur la souris
-                    if play_button_rect.collidepoint(event.pos):
-                        # mettre le jeu en mode 'lancé'
-                            game.start()
         
             
 # classe palette de gauche
@@ -281,3 +243,41 @@ score = 0
 
 # Score2
 score2 = 0
+
+# boucle tant que la condition est vrai
+while running:
+    
+    # appliquer l'arriere plan du jeu
+    screen.blit(background, (0, 0))
+    
+    # verifier si notre jeu à commencé ou non
+    if game.is_playing:
+        # declencher les instructions de la partie
+        game.update(screen)
+        # verifier si notre jeu n'a pas commencé
+    else:
+        # ajouter mon ecran de bienvenue
+        screen.blit(play_button, (play_button_rect))
+        screen.blit(banner, (banner_rect))
+   
+    # mettre a jour l'ecran
+    pygame.display.flip()
+    
+    # si le joueur ferme la fenetre
+    for event in pygame.event.get():
+        # evenement est la fermeture de la fenetre
+        if event.type == pygame.QUIT:
+            running = False
+            pygame.quit()
+            
+        # si un joueur lache une touche du clavier
+        elif event.type == pygame.KEYDOWN:
+            game.pressed[event.key] = True
+        elif event.type == pygame.KEYUP:
+            game.pressed[event.key] = False
+            
+        elif event.type == pygame.MOUSEBUTTONDOWN:
+            # verifier pour savoir si on appuie sur la souris
+            if play_button_rect.collidepoint(event.pos):
+                # mettre le jeu en mode 'lancé'
+                game.start()
