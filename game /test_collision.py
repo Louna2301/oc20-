@@ -8,7 +8,7 @@ pygame.init()
 class Game:
     
     def __init__(self):
-        # definir si notre jeu a commencé
+        # definir si notre j eu a commencé
         self.is_playing = False
         # charger la palette de gauche
         self.all_palets = pygame.sprite.Group()
