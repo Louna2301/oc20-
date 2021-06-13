@@ -21,6 +21,11 @@ class Game:
         # charger la balle
         self.ball = Ball(self)
         self.all_ball = pygame.sprite.Group()
+        # charger le texte
+        self.label = Text('pong', (10, 10))
+        self.label1 = Text('0', (450, 350))
+        self.label2 = Text('0', (685, 350))
+        # charger le score
         self.score = 0 
         self.score2 = 0
         
@@ -134,6 +139,21 @@ class Ball(pygame.sprite.Sprite):
        
     def bounce(self):
          self.velocity = -self.velocity
+         
+# classe texte
+class Text:
+    def __init__(self, text, pos=(0, 0)):
+        self.font = pygame.font.Font(None, 100)
+        self.color = (255, 255, 255)
+        self.text = text
+        self.pos = pos
+        self.render(text)
+        
+    def render(self, text):
+        self.image = self.font.render(text, 1, self.color)
+        
+    def draw(self):
+        screen.blit(self.image, self.pos)
         
 # fenetre du jeu
 pygame.display.set_caption('Pong') 
