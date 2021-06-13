@@ -89,7 +89,7 @@ class Palet1(pygame.sprite.Sprite):
     
     def __init__(self, pos=(0, 0)):
         super().__init__()
-        self.velocity = 5
+        self.velocity = 10
         self.image = pygame.image.load('images2.0/palet.png')
         self.image = pygame.transform.scale(self.image, (20, 150))
         self.rect = self.image.get_rect()
@@ -106,11 +106,11 @@ class Palet1(pygame.sprite.Sprite):
         # la palette sait comment bouger
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_e:
-                self.speed = -10
+                self.velocity = -10
             elif event.key == pygame.K_x:
-                self.speed = 10
+                self.velocity = 10
         elif event.type == pygame.KEYUP:
-                self.speed = 0
+                self.velocity = 0
     
     def draw(self):
         screen.blit(self.image, self.pos)
@@ -120,7 +120,7 @@ class Palet2(pygame.sprite.Sprite):
     
     def __init__(self, pos=(0, 0)):
         super().__init__()
-        self.velocity = 5
+        self.velocity = 10
         self.image = pygame.image.load('images2.0/palet.png')
         self.image = pygame.transform.scale(self.image, (20, 150))
         self.rect = self.image.get_rect()
@@ -137,11 +137,11 @@ class Palet2(pygame.sprite.Sprite):
         # la palette sait comment bouger
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_i:
-                self.speed = -10
+                self.velocity = -10
             elif event.key == pygame.K_m:
-                self.speed = 10
+                self.velocity = 10
         elif event.type == pygame.KEYUP:
-            self.speed = 0
+            self.velocity = 0
     
     def draw(self):
         screen.blit(self.image, self.pos)
