@@ -12,29 +12,40 @@ class Game:
     
     def __init__(self):
         # definir si notre jeu a commencé
-
+        # charger la palette de gauche
         self.palet1 = Palet1()
+        # charger la palette de droite
         self.palet2 = Palet2()
+        # charger la balle
         self.ball = Ball(self)
+        # charger le texte
         self.label = Text('pong', (10, 10))
         self.label1 = Text('0',  (450, 350))
         self.label2 = Text('0',  (685, 350))
-
+        
+        # charger la bannière
         self.banner = Button('images2.0/Pong.jpg', (600, 300), (500, 200))
+        # charger le boutton
         self.button = Button('images2.0/play.jpg', (600, 500), (400, 150))
 
+        # charger le score
         self.score1 = 0 
         self.score2 = 0
+        
         self.running = True
         self.playing = False
         
+        # charger le fond d'écran
         self.background = pygame.image.load('images2.0/background.png')
         self.background = pygame.transform.scale(self.background, (1200, 800))
         self.rect = self.background.get_rect()
 
     def run(self):
+        # boucle tant que la condition est vrai
         while self.running:
+            # si le joueur ferme la fenetre
             for event in pygame.event.get():
+                # evenement est la fermeture de la fenetre
                 if event.type == pygame.QUIT:
                     self.running = False
                     pygame.quit()
@@ -55,22 +66,28 @@ class Game:
 
                 self.palet1.do_event(event)
                 self.palet2.do_event(event)
-
+                
+            # si le jeu a commencé
             if self.playing:
+                # les sprites bougent
                 self.palet1.move()
                 self.palet2.move()
                 self.ball.move()
 
             screen.blit(self.background, (0, 0))
-
+            
+            # si le jeu a commencé
             if self.playing:
+                # les éléments se dessinent
                 self.palet1.draw()
                 self.palet2.draw()
                 self.ball.draw()
                 self.label.draw()
                 self.label1.draw()
                 self.label2.draw()
+            # si le jeu n'a pas commencé
             else:
+                # les élément bannière et boutton se dessinent
                 self.button.draw()
                 self.banner.draw()
                 
@@ -84,7 +101,7 @@ class Game:
         self.is_playing = False
         self.score = 0
 
-# Source: https://pygame.readthedocs.io/en/latest/5_app/app.html#add-the-text-class
+
 class Text:
     def __init__(self, text, pos=(0, 0)):
         self.font = pygame.font.Font(None, 100)
