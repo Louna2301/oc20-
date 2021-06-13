@@ -53,6 +53,9 @@ class Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         self.playing = False
+                        
+                elif self.score1 or self.score2 == 10:
+                    self.playing = False
                 
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     # exemple pour debugger et afficher la position de la souris
@@ -101,7 +104,8 @@ class Game:
         self.is_playing = False
         self.score = 0
 
-
+# Source: https://pygame.readthedocs.io/en/latest/5_app/app.html#add-the-text-class
+# classe texte
 class Text:
     def __init__(self, text, pos=(0, 0)):
         self.font = pygame.font.Font(None, 100)
@@ -232,7 +236,7 @@ class Ball(pygame.sprite.Sprite):
     def draw(self):
         screen.blit(self.image, self.rect)
 
-
+# classe boutton
 class Button(pygame.sprite.Sprite):
 
     def __init__(self, path, pos, size):
