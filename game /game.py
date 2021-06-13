@@ -43,39 +43,39 @@ class Game:
         # boucle tant que la condition est vrai
         while running:
     
-    # appliquer l'arriere plan du jeu
+            # appliquer l'arriere plan du jeu
             screen.blit(background, (0, 0))
     
-    # verifier si notre jeu à commencé ou non
+            # verifier si notre jeu à commencé ou non
             if game.is_playing:
-        # declencher les instructions de la partie
+                # declencher les instructions de la partie
                 game.update(screen)
-        # verifier si notre jeu n'a pas commencé
+            # verifier si notre jeu n'a pas commencé
             else:
-        # ajouter mon ecran de bienvenue
+                # ajouter mon ecran de bienvenue
                 screen.blit(play_button, (play_button_rect))
                 screen.blit(banner, (banner_rect))
    
-    # mettre a jour l'ecran
+            # mettre a jour l'ecran
             pygame.display.flip()
     
-    # si le joueur ferme la fenetre
+            # si le joueur ferme la fenetre
             for event in pygame.event.get():
-        # evenement est la fermeture de la fenetre
+            # evenement est la fermeture de la fenetre
                 if event.type == pygame.QUIT:
                     running = False
                     pygame.quit()
             
-        # si un joueur lache une touche du clavier
+                # si un joueur lache une touche du clavier
                 elif event.type == pygame.KEYDOWN:
                     game.pressed[event.key] = True
                 elif event.type == pygame.KEYUP:
                     game.pressed[event.key] = False
             
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-            # verifier pour savoir si on appuie sur la souris
+                # verifier pour savoir si on appuie sur la souris
                     if play_button_rect.collidepoint(event.pos):
-                # mettre le jeu en mode 'lancé'
+                        # mettre le jeu en mode 'lancé'
                         game.start()
         
     def start(self):
