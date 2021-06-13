@@ -163,7 +163,7 @@ class Ball(pygame.sprite.Sprite):
         self.rect.bottom = 50
         self.rect.top = 50
         self.rect.right = 50
-        self.rect.left =50
+        self.rect.left = 50
         self.angle = 0
         self.pos = pos
 
