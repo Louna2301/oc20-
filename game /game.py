@@ -282,8 +282,7 @@ score = 0
 
 # Score2
 score2 = 0
-            
-            
+                      
 game.ball.move()
 game.palet1.move()
 game.palet2.move()
