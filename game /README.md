@@ -20,6 +20,10 @@ Pour le joueur de gauche:
 
 Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessiné la bannière ``PONG``, ainsi que le boutton ``PLAY`` sur lequel nous devons cliquer avec la souris, pour démarrer le jeu.
 
+<img width="1176" alt="Capture d’écran 2021-06-14 à 11 29 06" src="https://user-images.githubusercontent.com/77683990/121871083-0016f580-cd04-11eb-8c9f-efb196144dc7.png">
+
+Sur cette capture d'écran, nous poubons voir que le joueur de gauche (le joueur bleu) à marqué 1 point.
+
 ## Règles du jeu
 Les règles du jeu sont simples:
 
@@ -37,10 +41,12 @@ Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter to
 
 Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
 
-Et enfin, les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2`` et enfin, la classe ``Ball`` . Qui sont les éléments constituant le jeu vidéo.
+Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``. Qui sont les éléments constituant le jeu vidéo.
+
+Et enfin, il y a la classe ``Text`` qui contient tous les éléments textuels du jeu.
 
 ## Le diagramme de classe
-![Untitled Diagram](https://user-images.githubusercontent.com/77683990/121869351-40757400-cd02-11eb-87cf-5dcd3ecd8327.png)
+![Untitled Diagram](https://user-images.githubusercontent.com/77683990/121870186-12446400-cd03-11eb-9eaa-6bf0da24c50c.png)
 
 ## Références et inspirations
 La base de notre jeu est inspiré de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
