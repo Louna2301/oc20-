@@ -20,6 +20,10 @@ Pour le joueur de gauche:
 
 Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessiné la bannière ``PONG``, ainsi que le boutton ``PLAY`` sur lequel nous devons cliquer avec la souris, pour démarrer le jeu.
 
+<img width="1176" alt="Capture d’écran 2021-06-14 à 11 29 06" src="https://user-images.githubusercontent.com/77683990/121871083-0016f580-cd04-11eb-8c9f-efb196144dc7.png">
+
+Sur cette capture d'écran, nous poubons voir que le joueur de gauche (le joueur bleu) à marqué 1 point.
+
 ## Règles du jeu
 Les règles du jeu sont simples:
 
