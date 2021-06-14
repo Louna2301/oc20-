@@ -40,7 +40,7 @@ Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
 Et enfin, les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2`` et enfin, la classe ``Ball`` . Qui sont les éléments constituant le jeu vidéo.
 
 ## Le diagramme de classe
-![Untitled Diagram](https://user-images.githubusercontent.com/77683990/121869351-40757400-cd02-11eb-87cf-5dcd3ecd8327.png)
+![Untitled Diagram](https://user-images.githubusercontent.com/77683990/121870186-12446400-cd03-11eb-9eaa-6bf0da24c50c.png)
 
 ## Références et inspirations
 La base de notre jeu est inspiré de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
