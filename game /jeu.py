@@ -43,6 +43,10 @@ class Game:
     def run(self):
         # boucle tant que la condition est vrai
         while self.running:
+            
+            # appliquer l'arriere plan du jeu
+            screen.blit(self.background, (0, 0))
+            
             # si le joueur ferme la fenetre
             for event in pygame.event.get():
                 # evenement est la fermeture de la fenetre
@@ -76,8 +80,6 @@ class Game:
                 self.palet1.move()
                 self.palet2.move()
                 self.ball.move()
-
-            screen.blit(self.background, (0, 0))
             
             # si le jeu a commencé
             if self.playing:
