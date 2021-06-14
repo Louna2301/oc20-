@@ -37,7 +37,9 @@ Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter to
 
 Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
 
-Et enfin, les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2`` et enfin, la classe ``Ball`` . Qui sont les éléments constituant le jeu vidéo.
+Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``. Qui sont les éléments constituant le jeu vidéo.
+
+Et enfin, il y a la classe ``Text`` qui contient tous les éléments textuels du jeu.
 
 ## Le diagramme de classe
 ![Untitled Diagram](https://user-images.githubusercontent.com/77683990/121870186-12446400-cd03-11eb-9eaa-6bf0da24c50c.png)
