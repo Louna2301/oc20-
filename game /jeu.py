@@ -106,6 +106,7 @@ class Game:
         self.is_playing = False
         self.score = 0
 
+
 # Source: https://pygame.readthedocs.io/en/latest/5_app/app.html#add-the-text-class
 # classe texte
 class Text:
@@ -121,6 +122,19 @@ class Text:
 
     def draw(self):
         screen.blit(self.image, self.pos)
+
+
+# classe boutton
+class Button(pygame.sprite.Sprite):
+
+    def __init__(self, path, pos, size):
+        self.image = pygame.image.load(path)
+        self.image = pygame.transform.scale(self.image, size)
+        self.rect = self.image.get_rect()
+        self.rect.center = pos
+
+    def draw(self):
+        screen.blit(self.image, self.rect)
 
 
 # classe palette de gauche
@@ -234,18 +248,6 @@ class Ball(pygame.sprite.Sprite):
         # collision palette droite
         if self.rect.colliderect(self.game.palet2.rect):
             self.velocity[0] = -5
-
-    def draw(self):
-        screen.blit(self.image, self.rect)
-
-# classe boutton
-class Button(pygame.sprite.Sprite):
-
-    def __init__(self, path, pos, size):
-        self.image = pygame.image.load(path)
-        self.image = pygame.transform.scale(self.image, size)
-        self.rect = self.image.get_rect()
-        self.rect.center = pos
 
     def draw(self):
         screen.blit(self.image, self.rect)
