@@ -22,11 +22,11 @@ Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessi
 
 <img width="1204" alt="Capture d’écran 2021-06-15 à 14 34 28" src="https://user-images.githubusercontent.com/77683990/122053486-15b11b80-cde7-11eb-9612-836cd10326aa.png">
 
-Sur cette capture d'écran, nous pouvons voir que le joueur de droite (le joueur rouge) a marqué 2  points.
+Sur cette capture d'écran, nous pouvons voir que le joueur de droite (le joueur rouge) a marqué 2 points.
 
 <img width="1194" alt="Capture d’écran 2021-06-15 à 14 34 05" src="https://user-images.githubusercontent.com/77683990/122053634-35484400-cde7-11eb-8996-4e9a9c392078.png">
 
-Sue cette image, nous voyons la balle repartir du centre apès l'acquisition d'un point par l'un ou l'autre des deux joueurs.
+Sur cette image, nous voyons la balle repartir du centre apès l'acquisition d'un point par l'un ou l'autre des deux joueurs.
 
 ## Règles du jeu
 Les règles du jeu sont simples:
@@ -45,7 +45,7 @@ Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter to
 
 Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
 
-Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``. Qui sont les éléments constituant le jeu vidéo, les éléments qui bougent (font bouger).
+Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``, qui sont les éléments constituant le jeu vidéo, les éléments qui bougent (font bouger).
 
 Et enfin, il y a la classe ``Text`` qui contient tous les éléments textuels du jeu.
 
@@ -53,7 +53,7 @@ Et enfin, il y a la classe ``Text`` qui contient tous les éléments textuels du
 ![Untitled Diagram](https://user-images.githubusercontent.com/77683990/121870186-12446400-cd03-11eb-9eaa-6bf0da24c50c.png)
 
 ## Références et inspirations
-La base de notre jeu est inspiré de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
+La base de notre jeu est inspirée de la série de vidéos ``Comment créer un jeu en python`` de ``Graven - Developpement``  https://www.youtube.com/channel/UCIHVyohXw6j2T-83-uLngEg
 
 ## Sources images/son
 Palettes : https://yorkdojo.github.io/worksheets/scratch/pong/, consulté le 26.05.2021
