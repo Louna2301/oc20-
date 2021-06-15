@@ -18,11 +18,15 @@ Pour le joueur de gauche:
 
 <img width="1201" alt="Capture d’écran 2021-05-30 à 16 50 39" src="https://user-images.githubusercontent.com/77683990/120108863-49454200-c167-11eb-90da-8a1d29c0a6b4.png">
 
-Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessiné la bannière ``PONG``, ainsi que le boutton ``PLAY`` sur lequel nous devons cliquer avec la souris, pour démarrer le jeu.
+Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessiné la bannière ``PONG``, ainsi que le boutton ``PLAY`` sur lequel nous devons cliquer avec la souris, pour démarrer le jeu. C'est également sur cet écran que nous retournons quand nous appuyons sur la touche "Q" ou qu'un joueur atteint 10 points.
 
-<img width="1176" alt="Capture d’écran 2021-06-14 à 11 29 06" src="https://user-images.githubusercontent.com/77683990/121871083-0016f580-cd04-11eb-8c9f-efb196144dc7.png">
+<img width="1204" alt="Capture d’écran 2021-06-15 à 14 34 28" src="https://user-images.githubusercontent.com/77683990/122053486-15b11b80-cde7-11eb-9612-836cd10326aa.png">
 
-Sur cette capture d'écran, nous poubons voir que le joueur de gauche (le joueur bleu) à marqué 1 point.
+Sur cette capture d'écran, nous pouvons voir que le joueur de droite (le joueur rouge) a marqué 2  points.
+
+<img width="1194" alt="Capture d’écran 2021-06-15 à 14 34 05" src="https://user-images.githubusercontent.com/77683990/122053634-35484400-cde7-11eb-8996-4e9a9c392078.png">
+
+Sue cette image, nous voyons la balle repartir du centre apès l'acquisition d'un point par l'un ou l'autre des deux joueurs.
 
 ## Règles du jeu
 Les règles du jeu sont simples:
@@ -32,7 +36,7 @@ Faites rebondire la balle sur votre raquette, feintez votre adversaire et soyez 
 Alors, qui aura le plus de points ??
 
 ## Fin du jeu
-Le jeu se termine lorsqu'une personne arrive à atteindre les 10 points.
+Le jeu se termine lorsqu'une personne arrive à atteindre les 10 points ou qu'un joueur appuie sur la touche "Q".
 
 ## Les classes
 Dans ce jeu, il n'y a pas beaucoup de classe.
@@ -41,7 +45,7 @@ Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter to
 
 Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
 
-Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``. Qui sont les éléments constituant le jeu vidéo.
+Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``. Qui sont les éléments constituant le jeu vidéo, les éléments qui bougent (font bouger).
 
 Et enfin, il y a la classe ``Text`` qui contient tous les éléments textuels du jeu.
 
