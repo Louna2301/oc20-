@@ -53,18 +53,14 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
                     pygame.quit()
-
+                
+                # evenement est appuyer sur "q"
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         self.playing = False
                     
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    # exemple pour debugger et afficher la position de la souris
-                    print(event.pos)
                     
-                    # exemple pour debugger et afficher une variable dans le jeu
-                    self.label.render(str(event.pos))
-
                     if self.button.rect.collidepoint(event.pos):
                         self.playing = True
 
