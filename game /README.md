@@ -1,10 +1,10 @@
 # Game
 # Pong
 ## Présentation du jeu
-Le ``Pong``est un des premier jeu vidéo apparu dans les années 70. Il est aujourd'hui concidéreé comme le commencement de l'industrie des jeux vidéos. Nous avons choisi de faire ce jeu vidéo, car malgré sa simplicité, il regroupe toute les notions importante dans la création d'un jeu vidéo. En plus de cela, c'est un moyen de redonner une nouvelle vie et de nous réapproprier cet "ancêtre des jeux vidéo".
-Equipé d'une raquette et d'une balle, les joueurs s'affrontent dans le but de marquer le plus de points. Le point est gagné, lorsque la balle passe dans le but de l'autre, car celui-ci n'a pas réussi à rattrapper la balle avec sa raquette. Le jeu initial est conçu pour que le joueur ait le choix de jouer soit seul (contre un ordinateur), soit contre un réel adversaire. Dans le cas de notre jeu, les deux adversaires s'affronte sur un même ordinateur avec chacun sont côté du clavier.
+Le ``Pong``est un des premiers jeux vidéo apparu dans les années 70. Il est aujourd'hui concidéré comme le commencement de l'industrie des jeux vidéos. Nous avons choisi de faire ce jeu vidéo, car malgré sa simplicité, il regroupe toutes les notions importantes dans la création d'un jeu vidéo. En plus de cela, c'est un moyen de redonner une nouvelle vie et de nous réapproprier cet "ancêtre des jeux vidéo".
+Equipé d'une raquette et d'une balle, les joueurs s'affrontent dans le but de marquer le plus de points. Le point est gagné, lorsque la balle passe dans le but de l'autre, car celui-ci n'a pas réussi à rattrapper la balle avec sa raquette. Le jeu initial est conçu pour que le joueur ait le choix de jouer soit seul (contre un ordinateur), soit contre un réel adversaire. Dans le cas de notre jeu, les deux adversaires s'affrontent sur un même ordinateur et chacun a un côté du clavier.
 
-Les commandes que nous devrons utiliser sont :
+Les commandes utilisées pour jouer sont :
 
 Pour le joueur de droite:
 * ``i``: monter 
@@ -41,9 +41,9 @@ Le jeu se termine lorsqu'une personne arrive à atteindre les 10 points ou qu'un
 ## Les classes
 Dans ce jeu, il n'y a pas beaucoup de classe.
 
-Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter tous les élémemts du jeu.
+Il y a tout d'abord, la classe ``Sprite`` qui est la classe qui fait hériter tous les éléments du jeu.
 
-Il y ensuite, la classe ``Game`` qui continent tout les éléments du jeu.
+Il y a ensuite, la classe ``Game`` qui contient tous les éléments du jeu.
 
 Les classes héritées de ``Sprite`` telles que la classe ``Palet1``, la classe ``Palet2``, la classe ``Ball`` et enfin la classe ``Button``, qui sont les éléments constituant le jeu vidéo, les éléments qui bougent (font bouger).
 
