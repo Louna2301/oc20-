@@ -36,7 +36,7 @@ Faites rebondire la balle sur votre raquette, feintez votre adversaire et soyez 
 Alors, qui aura le plus de points ??
 
 ## Fin du jeu
-Le jeu se termine lorsqu'une personne arrive à atteindre les 10 points.
+Le jeu se termine lorsqu'une personne arrive à atteindre les 10 points ou qu'un joueur appuie sur la touche "Q".
 
 ## Les classes
 Dans ce jeu, il n'y a pas beaucoup de classe.
