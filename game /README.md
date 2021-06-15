@@ -22,7 +22,7 @@ Cette photo représente l'écran d'accueil de notre jeu vidéo. Nous avons dessi
 
 <img width="1204" alt="Capture d’écran 2021-06-15 à 14 34 28" src="https://user-images.githubusercontent.com/77683990/122053486-15b11b80-cde7-11eb-9612-836cd10326aa.png">
 
-Sur cette capture d'écran, nous poubons voir que le joueur de gauche (le joueur bleu) à marqué 2  points.
+Sur cette capture d'écran, nous poubons voir que le joueur de droite (le joueur rouge) à marqué 2  points.
 
 <img width="1194" alt="Capture d’écran 2021-06-15 à 14 34 05" src="https://user-images.githubusercontent.com/77683990/122053634-35484400-cde7-11eb-8996-4e9a9c392078.png">
 
