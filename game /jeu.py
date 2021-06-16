@@ -59,16 +59,13 @@ class Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_q:
                         self.playing = False
-                
-                elif self.score2 = 10:
-                    self.playing = False
-                    
-                elif self.score2 = 10:
-                    self.playing = False
-                    
+                        
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if self.button.rect.collidepoint(event.pos):
                         self.playing = True
+                
+            if self.score1 == 10 or self.score2 == 10:
+                self.playing = False
 
                 self.palet1.do_event(event)
                 self.palet2.do_event(event)
