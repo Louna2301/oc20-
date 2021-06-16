@@ -60,10 +60,10 @@ class Game:
                     if event.key == pygame.K_q:
                         self.playing = False
                 
-                elif self.score2 == 10:
+                elif self.score2 = 10:
                     self.playing = False
                     
-                elif self.score2 == 10:
+                elif self.score2 = 10:
                     self.playing = False
                     
                 elif event.type == pygame.MOUSEBUTTONDOWN:
