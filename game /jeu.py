@@ -53,6 +53,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
                     pygame.quit()
+                    break
                 
                 # evenement est appuyer sur "q"
                 elif event.type == pygame.KEYDOWN:
@@ -62,8 +63,10 @@ class Game:
                 elif self.score2 == 10:
                     self.playing = False
                     
-                elif event.type == pygame.MOUSEBUTTONDOWN:
+                elif self.score2 == 10:
+                    self.playing = False
                     
+                elif event.type == pygame.MOUSEBUTTONDOWN:
                     if self.button.rect.collidepoint(event.pos):
                         self.playing = True
 
@@ -103,7 +106,6 @@ class Game:
         self.score = 0
 
 
-# Source: https://pygame.readthedocs.io/en/latest/5_app/app.html#add-the-text-class
 # classe texte
 class Text:
     def __init__(self, text, pos=(0, 0)):
