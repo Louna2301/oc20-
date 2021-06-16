@@ -63,12 +63,13 @@ class Game:
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if self.button.rect.collidepoint(event.pos):
                         self.playing = True
-                
-                if self.score1 == 10 or self.score2 == 10:
-                    self.playing = False
 
                 self.palet1.do_event(event)
                 self.palet2.do_event(event)
+                
+            if self.score1 == 10 or self.score2 == 10:
+                    self.playing = False
+                    screen.blit(self.background, (0, 0))
                 
             # si le jeu a commencé
             if self.playing:
