@@ -53,7 +53,7 @@ class Game:
                 if event.type == pygame.QUIT:
                     self.running = False
                     pygame.quit()
-                    break
+                    sys.exit()
                 
                 # evenement est appuyer sur "q"
                 elif event.type == pygame.KEYDOWN:
