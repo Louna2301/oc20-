@@ -64,8 +64,8 @@ class Game:
                     if self.button.rect.collidepoint(event.pos):
                         self.playing = True
                 
-            if self.score1 == 10 or self.score2 == 10:
-                self.playing = False
+                if self.score1 == 10 or self.score2 == 10:
+                    self.playing = False
 
                 self.palet1.do_event(event)
                 self.palet2.do_event(event)
